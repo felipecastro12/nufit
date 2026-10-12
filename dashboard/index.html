@@ -1,0 +1,281 @@
+<title>Radar de Fundamentales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: cabecera con selector de ticker, veredicto arriba, diccionario de conceptos en tarjetas con los números reales debajo */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --surface2: #e9edf4;
+  --ink: #131f2e;
+  --ink2: #52617a;
+  --line: #d7ddE8;
+  --accent: #1b5cd1;
+  --accent-soft: #e2ebfb;
+  --good: #15774a;
+  --good-soft: #ddf2e6;
+  --warn: #8f5f00;
+  --warn-soft: #fbeece;
+  --bad: #b3261e;
+  --bad-soft: #fbe2df;
+  --font-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c121a; --surface: #141c27; --surface2: #1c2635; --ink: #e5ebf4; --ink2: #9aa8bd; --line: #263244;
+    --accent: #6fa3ff; --accent-soft: #19294a;
+    --good: #4cc38a; --good-soft: #11301f; --warn: #e3b341; --warn-soft: #382c0b; --bad: #ff7b72; --bad-soft: #3b1a18;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c121a; --surface: #141c27; --surface2: #1c2635; --ink: #e5ebf4; --ink2: #9aa8bd; --line: #263244;
+  --accent: #6fa3ff; --accent-soft: #19294a;
+  --good: #4cc38a; --good-soft: #11301f; --warn: #e3b341; --warn-soft: #382c0b; --bad: #ff7b72; --bad-soft: #3b1a18;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 15px; line-height: 1.55; padding-inline: 16px; padding-block: 24px 64px; }
+.wrap { max-width: 1080px; margin-inline: auto; display: flex; flex-direction: column; gap: 40px; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; line-height: 1.15; }
+h1 { font-size: clamp(28px, 5vw, 40px); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 24px; font-weight: 700; letter-spacing: -0.01em; }
+h3 { font-size: 17px; font-weight: 500; }
+p { margin: 0; }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.eyebrow { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
+.muted { color: var(--ink2); }
+
+header { display: flex; flex-direction: column; gap: 16px; }
+.head-top { display: flex; flex-wrap: wrap; gap: 12px 24px; align-items: flex-end; justify-content: space-between; }
+.head-top > div { min-width: 0; }
+.tickers { display: flex; flex-wrap: wrap; gap: 8px; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.chip { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; font-weight: 500; font-size: 14px; }
+.chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+:root[data-theme="dark"] .chip[aria-pressed="true"] { color: #0c121a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .chip[aria-pressed="true"] { color: #0c121a; } }
+
+section { display: flex; flex-direction: column; gap: 16px; }
+.sec-head { display: flex; flex-direction: column; gap: 4px; }
+.sec-head p { max-width: 65ch; color: var(--ink2); }
+
+.verdict { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 16px; }
+.pill { display: inline-flex; align-items: center; border-radius: 999px; padding: 4px 12px; font-size: 13px; font-weight: 600; width: fit-content; }
+.t-good { background: var(--good-soft); color: var(--good); }
+.t-ok { background: var(--surface2); color: var(--ink2); }
+.t-warn { background: var(--warn-soft); color: var(--warn); }
+.t-bad { background: var(--bad-soft); color: var(--bad); }
+.verdict .headline { font-family: var(--font-display); font-size: clamp(22px, 3.6vw, 30px); font-weight: 700; line-height: 1.2; text-wrap: balance; }
+.verdict .summary { max-width: 72ch; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.tile .k { font-size: 12px; color: var(--ink2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+.tile .v { font-family: var(--font-mono); font-size: 24px; font-weight: 500; }
+.tile .s { font-size: 12.5px; color: var(--ink2); }
+.tile.good .v { color: var(--good); } .tile.warn .v { color: var(--warn); } .tile.bad .v { color: var(--bad); }
+
+.range { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.range-bar { position: relative; height: 10px; border-radius: 999px; background: linear-gradient(90deg, var(--bad-soft), var(--surface2) 50%, var(--good-soft)); border: 1px solid var(--line); }
+.range-dot { position: absolute; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); transform: translate(-50%, -50%); box-shadow: 0 0 0 1px var(--accent); }
+.range-ends { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink2); }
+
+.grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.panel ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+
+.scores { display: flex; flex-direction: column; gap: 14px; }
+.score { display: grid; grid-template-columns: 150px 1fr; gap: 4px 16px; align-items: center; }
+.score .name { font-weight: 600; }
+.bar { height: 10px; border-radius: 999px; background: var(--surface2); overflow: hidden; display: flex; }
+.bar > i { display: block; height: 100%; border-radius: 999px; background: var(--accent); }
+.score .text { grid-column: 2; font-size: 13.5px; color: var(--ink2); }
+.score .num { font-family: var(--font-mono); font-size: 13px; color: var(--ink2); }
+@media (max-width: 560px) { .score { grid-template-columns: 1fr; } .score .text { grid-column: 1; } }
+
+.scen { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.scen .panel { gap: 6px; }
+.scen .p { font-family: var(--font-mono); font-size: 13px; color: var(--ink2); }
+.scen .px { font-family: var(--font-mono); font-size: 22px; font-weight: 500; }
+
+dl.plan { margin: 0; display: grid; grid-template-columns: minmax(130px, 200px) 1fr; gap: 10px 16px; }
+dl.plan dt { font-weight: 600; color: var(--ink2); }
+dl.plan dd { margin: 0; }
+@media (max-width: 560px) { dl.plan { grid-template-columns: 1fr; gap: 2px; } dl.plan dd { margin-bottom: 10px; } }
+
+.toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.toolbar input { font: inherit; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 7px 12px; min-width: 0; flex: 1 1 180px; max-width: 280px; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card-top { display: flex; justify-content: space-between; gap: 8px; align-items: flex-start; }
+.card-top .en { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink2); word-break: break-word; }
+.card .num-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.big { font-family: var(--font-mono); font-size: 28px; font-weight: 500; line-height: 1.1; }
+.sub { font-size: 12.5px; color: var(--ink2); font-family: var(--font-mono); }
+.up { color: var(--good); } .down { color: var(--bad); }
+.spark { display: block; width: 130px; height: 40px; }
+.spark-labels { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink2); font-family: var(--font-mono); width: 130px; }
+.facts { display: flex; flex-direction: column; gap: 8px; font-size: 14px; }
+.facts b { display: block; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink2); font-weight: 600; }
+.facts .mine { background: var(--surface2); border-radius: 8px; padding: 10px 12px; }
+.extras { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+
+footer { display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--ink2); }
+footer a { color: var(--accent); }
+footer ul { margin: 0; padding-left: 18px; }
+@media (prefers-reduced-motion: no-preference) { .bar > i { transition: width .4s ease; } }
+</style>
+
+<div class="wrap" id="app" aria-live="polite"></div>
+
+<script type="application/json" id="tickers-data">{"default":"BSX","tickers":{"BSX":{"ticker":"BSX","name":"Boston Scientific","exchange":"NYSE · USD","asOf":"2026-10-12","source":"thinkorswim (pestaña Fundamentals)","periods":["FY2021","FY2022","FY2023","FY2024","FY2025"],"sections":[{"id":"shares","title":"Valores por acción","rows":[{"key":"eps","label":"Earnings Per Share - TTM","v":2.47,"chg":55.2,"hist":[0.69,0.45,1.07,1.25,1.94],"fmt":"usd","tone":"good","note":"El EPS contable subió de $0.69 a $1.94 en cuatro años y el TTM ($2.47) sigue esa línea. El EPS ajustado de la guía 2026 ($3.28 a $3.32) es mayor porque excluye amortizaciones y otros cargos."},{"key":"dps","label":"Dividends Per Share - TTM","v":null,"fmt":"usd","tone":"ok","note":"No paga dividendos. Reinvierte la caja y compra empresas, así que el retorno depende solo del precio."},{"key":"bvps","label":"Book Value Per Share","v":17.23,"chg":10.68,"hist":[11.66,12.26,13.16,14.76,16.34],"fmt":"usd","tone":"ok","note":"Crece cerca de 11% al año. Con precio de $42.7 se paga 2.5 veces ese valor en libros."},{"key":"cfps","label":"Cash Flow Per Share","v":3.49,"chg":21.92,"hist":[1.56,1.77,2.25,2.65,3.23],"fmt":"usd","tone":"good","note":"Se duplicó en cinco años. La empresa genera más caja que utilidad contable."},{"key":"fcfps","label":"Free Cash Flow Per Share","v":2.45,"chg":37.47,"hist":[0.94,0.67,1.23,1.8,2.47],"fmt":"usd","tone":"good","note":"$2.45 de caja libre por acción. Sobre un precio de $42.7 es un rendimiento de 5.7%, más que un bono del Tesoro a corto plazo en un escenario normal de tasas."},{"key":"sps","label":"Sales Per Share","v":14.09,"chg":19.18,"hist":[8.29,8.81,9.73,11.27,13.43],"fmt":"usd","tone":"good","note":"Las ventas por acción suben cerca de 19% anual. Crecen los ingresos sin que la dilución se coma el avance."}]},{"id":"profit","title":"Rentabilidad","rows":[{"key":"roe","label":"Return on Equity (ROE)","v":15.339,"chg":40.08,"hist":[6.5168,4.0824,8.5815,8.8845,12.445],"fmt":"pct","tone":"good","note":"Pasó de 6.5% a 15.3%. Ya es un retorno sobre el capital de los accionistas que justifica pagar más que el valor en libros."},{"key":"roa","label":"Return on Assets (ROA)","v":6.1912,"chg":18.68,"hist":[3.6187,3.9278,4.4689,5.0348,5.9755],"fmt":"pct","tone":"ok","note":"6.2% y subiendo cada año. Es aceptable para una empresa con muchos activos por adquisiciones."},{"key":"gross","label":"Gross Profit Margin","v":69.189,"chg":0.54,"hist":[68.371,68.436,69.164,68.412,68.781],"fmt":"pct","tone":"good","note":"Se mantiene en 68% a 69% durante cinco años. Señal de poder de precios en sus dispositivos."},{"key":"opm","label":"Operating Profit Margin","v":17.47,"chg":30.77,"hist":[8.7567,5.5038,11.18,11.017,14.407],"fmt":"pct","tone":"ok","note":"Casi se duplicó desde 2021. El margen contable incluye amortización de adquisiciones, por eso el margen ajustado que reporta la empresa es más alto."},{"key":"tax","label":"Tax Rate","v":4.9987,"chg":-23.81,"hist":[3.3426,38.826,19.798,19.114,14.564],"fmt":"pct","tone":"warn","note":"Solo 5% este año. Si vuelve a un nivel normal de 15%, el EPS bajaría cerca de 10% (de $2.47 a unos $2.21). Parte del salto del EPS viene de aquí."},{"key":"interest","label":"Interest Rate - Estimated Average","v":2.904,"chg":7.44,"hist":[3.7642,5.2632,2.9131,2.8719,3.0855],"fmt":"pct","tone":"good","note":"Paga cerca de 3% por su deuda, barato frente a lo que rinde el negocio."},{"key":"npm","label":"Net Profit Margin","v":17.499,"chg":30.47,"hist":[8.7567,5.5038,11.187,11.065,14.437],"fmt":"pct","tone":"good","note":"De cada $100 que vende, deja $17.5 de utilidad neta. Estaba en $8.8 en 2021."}]},{"id":"activity","title":"Actividad","rows":[{"key":"assetturn","label":"Total Asset Turnover","v":0.48392,"chg":7.55,"hist":[0.37736,0.39204,0.42127,0.4494,0.48331],"fmt":"num","tone":"ok","note":"Vende unos 48 centavos por cada dólar de activos. Es bajo porque tiene mucho goodwill de adquisiciones, pero mejora cada año."},{"key":"invturn","label":"Inventory Turnover","v":2.1224,"chg":9.02,"hist":[2.5397,2.3026,2.0184,1.9985,2.1787],"fmt":"x","tone":"ok","note":"Renueva el inventario unas 2.1 veces al año (cada seis meses). Es normal en dispositivos médicos, que se guardan en muchos hospitales."}]},{"id":"fin","title":"Salud financiera","rows":[{"key":"ltdebt","label":"Long-term Debt to Capital","v":28.879,"chg":12.73,"hist":[35.159,34.411,30.796,28.194,31.783],"fmt":"pct","tone":"ok","note":"La deuda de largo plazo es 29% del capital total. Bajó desde 35% en 2021, aunque subió un poco en 2025."},{"key":"leverage","label":"Financial Leverage (Assets/Equity)","v":1.8137,"chg":-0.41,"hist":[1.9389,1.8477,1.8222,1.8096,1.8022],"fmt":"x","tone":"ok","note":"Estable en 1.8x. No hay un uso agresivo de deuda."},{"key":"fixedcov","label":"Fixed Charge Coverage Ratio","v":11.84,"chg":15.6,"hist":[4.2856,3.6656,9.1207,9.8426,11.378],"fmt":"x","tone":"good","note":"Las utilidades cubren casi 12 veces los pagos fijos (intereses y arriendos). Margen amplio para soportar un mal trimestre."},{"key":"payout","label":"Dividend Payout (% of Earnings)","v":null,"fmt":"pct","tone":"ok","note":"No aplica: no reparte dividendos."},{"key":"quick","label":"Quick Ratio","v":0.55818,"chg":93.62,"hist":[0.8664,0.76203,0.627,0.46445,0.89925],"fmt":"num","tone":"warn","note":"0.56 está por debajo de 1 y cayó frente a 0.90 del año fiscal anterior. No hay riesgo de quiebra por su generación de caja, pero la liquidez inmediata está ajustada."},{"key":"current","label":"Current Ratio","v":1.2402,"chg":49.51,"hist":[1.478,1.5146,1.3205,1.0814,1.6168],"fmt":"num","tone":"warn","note":"1.24 sigue sobre 1, pero bajó desde 1.62. Conviene ver si el próximo balance lo confirma."}]},{"id":"valuation","title":"Valoración","rows":[{"key":"pe","label":"Price / Earnings Ratio","v":17.293,"fmt":"x","extras":[{"l":"Promedio 5 años","v":59.698,"fmt":"x"}],"tone":"good","note":"Hoy 17.3 veces la utilidad contable. El promedio de 59.7 está inflado por años de utilidad muy baja, así que no es una comparación limpia. Sobre el EPS ajustado de 2026 (unos $3.30) el múltiplo baja a cerca de 13."},{"key":"pcf","label":"Price / Cash Flow Ratio","v":12.215,"fmt":"x","extras":[{"l":"Promedio 5 años","v":26.047,"fmt":"x"}],"tone":"good","note":"Se paga menos de la mitad de lo que el mercado pagó en promedio por cada dólar de flujo de caja."},{"key":"pb","label":"Price / Book Value Ratio","v":2.4768,"fmt":"x","extras":[{"l":"Promedio 5 años","v":null,"fmt":"x"}],"tone":"ok","note":"2.5 veces el valor en libros. Razonable con un ROE de 15%."},{"key":"mcapeq","label":"Market Capitalization / Common Equity Ratio","v":2.5446,"fmt":"x","extras":[{"l":"Promedio 5 años","v":4.5092,"fmt":"x"}],"tone":"good","note":"Bajó de 4.5 a 2.5 veces su patrimonio. El mercado hoy le da mucho menos prima que antes."},{"key":"divyield","label":"Dividend Yield","v":null,"fmt":"pct","tone":"ok","note":"No paga dividendos."},{"key":"divpayout","label":"Dividend Payout Per Share (% of EPS)","v":0,"fmt":"pct","tone":"ok","note":"Cero porque no hay dividendo."}]},{"id":"growth","title":"Crecimiento","rows":[{"key":"g_rev","label":"Revenue","v":13.529,"fmt":"pct","extras":[{"l":"Prom. 3 años","v":16.148,"fmt":"pct"},{"l":"Prom. 5 años","v":13.4,"fmt":"pct"}],"tone":"good","note":"Los ingresos crecen 13.5% hoy, algo menos que el ritmo de 16% de los últimos tres años. Es una desaceleración leve, y la guía del Q3 (3% a 5% orgánico) apunta a más freno."},{"key":"g_ni","label":"Net Income","v":46.667,"fmt":"pct","extras":[{"l":"Prom. 3 años","v":59.116,"fmt":"pct"},{"l":"Prom. 5 años","v":44.558,"fmt":"pct"}],"tone":"ok","note":"La utilidad neta sube 47%. Es una cifra alta porque parte de una base baja y por la tasa de impuestos reducida."},{"key":"g_eps","label":"Earnings Per Share","v":46.895,"fmt":"pct","extras":[{"l":"Prom. 3 años","v":60.286,"fmt":"pct"},{"l":"Prom. 5 años","v":46.223,"fmt":"pct"}],"tone":"ok","note":"Casi igual que la utilidad neta, así que la dilución es mínima. Ese ritmo difícilmente se repite."},{"key":"g_dps","label":"Dividends Per Share","v":null,"fmt":"pct","tone":"ok","note":"No aplica."},{"key":"g_bvps","label":"Book Value Per Share","v":null,"fmt":"pct","extras":[{"l":"Prom. 3 años","v":11.412,"fmt":"pct"},{"l":"Prom. 5 años","v":8.9739,"fmt":"pct"}],"tone":"ok","note":"El valor en libros por acción sube entre 9% y 11% al año."}]},{"id":"owners","title":"Acciones y propiedad","rows":[{"key":"shares","label":"Total Shares Outstanding","v":1449229526,"fmt":"int","tone":"ok","note":"1,449 millones de acciones. Con tantas acciones, cada dólar de utilidad se reparte entre muchos dueños."},{"key":"float","label":"Float","v":1444981689,"fmt":"int","tone":"good","note":"Casi todas las acciones cotizan libremente (99.7%). Hay liquidez de sobra para entrar y salir."},{"key":"mcap","label":"Market Cap","v":"$63,563 M","fmt":"txt","tone":"good","note":"Unos $63.6 mil millones. Es una empresa grande y líquida, dentro del mandato de cartera moderada."},{"key":"borrow","label":"Approximate Borrow Size","v":12223532,"fmt":"int","tone":"ok","note":"Unas 12.2 millones de acciones disponibles para venta corta (0.84% del total). Por sí solo no indica presión vendedora."},{"key":"inst","label":"Institutional Ownership Percent","v":93.85,"fmt":"pct","tone":"ok","note":"93.9% está en manos de fondos. Los grandes ya están dentro, y si venden, el precio lo siente."}]}],"analysis":{"verdict":{"rating":"Acumular en tramos","tone":"warn","headline":"Negocio de calidad con precio castigado, pero con un catalizador de riesgo a dos semanas."},"summary":"Los números de thinkorswim muestran una empresa que crece 13% al año, mantiene 69% de margen bruto, genera caja libre creciente y cubre sus cargos fijos casi 12 veces. El mercado la castiga por otra razón: recortes de guía repetidos y una desaceleración esperada a 3% a 5% orgánico en el Q3. El precio ($42.73 al cierre del 9 de octubre) está pegado al mínimo de 52 semanas ($42.20) y 60% bajo el máximo ($105.65). Pagar 13 veces el EPS ajustado de 2026 es barato frente a su historia, pero el resultado del Q3 puede mover la acción 10% o más en cualquier dirección. Por eso la compra se parte en tramos y con tamaño pequeño.","range":{"low":42.2,"high":105.65,"price":42.73,"label":"Rango de 52 semanas"},"tiles":[{"label":"Precio","value":"$42.73","sub":"Cierre del 9-oct-2026"},{"label":"Rendimiento FCF","value":"5.7%","sub":"FCF por acción $2.45 ÷ precio","tone":"good"},{"label":"P/E contable","value":"17.3x","sub":"Sobre EPS TTM de $2.47"},{"label":"P/E ajustado 2026","value":"≈13x","sub":"Guía de EPS ajustado $3.28 a $3.32","tone":"good"},{"label":"P/E con impuesto normal","value":"≈19x","sub":"EPS de $2.21 si la tasa vuelve a 15%","tone":"warn"},{"label":"Retorno esperado","value":"+13%","sub":"Ponderado por escenarios a 12 meses"}],"scores":[{"label":"Crecimiento","score":8,"text":"Ingresos +13.5% TTM y +13.4% promedio a 5 años. Hay desaceleración, no caída."},{"label":"Rentabilidad","score":7,"text":"Margen bruto de 69% estable, neto de 17.5% y ROE de 15%. El impuesto de 5% infla parte del resultado."},{"label":"Caja y balance","score":6,"text":"Cobertura de cargos fijos de 11.8x y deuda en 29% del capital. Los ratios de liquidez (0.56 y 1.24) bajaron."},{"label":"Valoración","score":7,"text":"13x EPS ajustado y 5.7% de FCF yield. Barato frente a su historia, aunque sin margen de error si se recorta la guía otra vez."},{"label":"Eficiencia","score":5,"text":"Rotación de activos de 0.48 y de inventario de 2.1. Mejoran, pero siguen bajas."},{"label":"Confianza del mercado","score":3,"text":"Tres recortes de guía, acción cerca de mínimos y cambios en la gerencia (nuevo COO)."}],"strengths":["Margen bruto de 69% sin variar en cinco años: poder de precios real.","FCF por acción de $2.45 (+37%) y flujo de caja por acción casi duplicado desde 2021.","Cobertura de cargos fijos de 11.8x: puede absorber un mal trimestre sin tensión financiera.","Float del 99.7%, capitalización de $63.6 mil millones y 94% institucional: liquidez total.","Múltiplos muy por debajo de su propio historial (P/CF 12.2x frente a 26x promedio)."],"risks":["Resultado del Q3 (28-oct según StockAnalysis, 20-oct según Chartmill; verifica la fecha): la guía fue de $0.80 a $0.82 de EPS y 3% a 5% de crecimiento orgánico. Otro recorte rompería la tesis.","Tasa de impuestos de 5%: el EPS contable está inflado. Con 15% sería cerca de $2.21 y el P/E subiría a 19x.","Liquidez en deterioro: quick ratio de 0.56 (era 0.90) y current ratio de 1.24 (era 1.62).","Cambios en la gerencia (nuevo COO) y una demanda por patentes en cardiología, según Yahoo Finance.","Caída de más de 50% en el año: cuando una acción cae así, el mercado puede seguir castigándola hasta ver un resultado limpio."],"scenarios":[{"name":"Bajista","prob":25,"price":"$33 a $36","tone":"bad","text":"Nuevo recorte de guía y crecimiento orgánico bajo 3%. El mercado paga 10x a 11x el EPS ajustado."},{"name":"Base","prob":50,"price":"$46 a $52","tone":"warn","text":"El Q3 llega en línea con la guía y la gerencia reafirma el año. El múltiplo sube a 14x o 15x."},{"name":"Alcista","prob":25,"price":"$58 a $64","tone":"good","text":"Reaceleración sobre 7% orgánico y guía 2027 firme. El múltiplo vuelve a 18x."}],"plan":[{"label":"Acción","value":"Acumular en 2 o 3 tramos"},{"label":"Zona de entrada","value":"$40 a $44 el primer tramo. Segundo tramo después del Q3 si la guía se sostiene, o en $36 a $38 si hay una caída fuerte"},{"label":"Invalidación","value":"Cierre semanal bajo $38 (cerca de -11%) o un nuevo recorte de guía"},{"label":"Objetivo 3 meses","value":"$50"},{"label":"Objetivo 12 meses","value":"$60, cercano al consenso de $59.7 de S&P Global"},{"label":"Tamaño sugerido","value":"2% a 3% de la cartera total en conjunto (tope individual de 5% para este perfil)"}],"sources":[{"t":"Yahoo Finance: cotización de BSX","u":"https://finance.yahoo.com/quote/BSX/"},{"t":"MarketBeat: guía del Q3 2026","u":"https://www.marketbeat.com/instant-alerts/boston-scientific-nysebsx-releases-q3-2026-earnings-guidance-2026-07-29/"},{"t":"StockAnalysis: pronóstico y precios objetivo","u":"https://stockanalysis.com/stocks/bsx/forecast/"},{"t":"Investing.com: BSX","u":"https://www.investing.com/equities/boston-scien-cp"},{"t":"IndexBox: recortes de guía 2026","u":"https://www.indexbox.io/blog/boston-scientific-stock-plunges-over-50-in-2026-amid-repeated-guidance-cuts/"}],"disclaimer":"Análisis con fines educativos. No constituye asesoría financiera personalizada. Los mercados cambian; vuelve a revisar antes de ejecutar. Precio y guía verificados por búsqueda web el 12-oct-2026, con varias fuentes en conflicto sobre la fecha de resultados."}}}}</script>
+<script>
+/* ---------- Diccionario de conceptos (explicaciones generales, valen para cualquier empresa) ---------- */
+var CONCEPTS = {
+  eps: {n: 'Utilidad por acción (EPS)', que: 'La ganancia de la empresa dividida entre el número de acciones. Es lo que le toca a cada acción en utilidades. TTM significa "últimos 12 meses".', lectura: 'Mejor si sube año tras año. Compara el EPS contable con el EPS ajustado que reporta la empresa: el ajustado suele ser mayor.'},
+  dps: {n: 'Dividendo por acción', que: 'Lo que la empresa paga en efectivo a sus accionistas por cada acción.', lectura: 'N/A significa que no paga dividendos. Muchas empresas en crecimiento prefieren reinvertir.'},
+  bvps: {n: 'Valor en libros por acción', que: 'Patrimonio contable (activos menos deudas) dividido entre las acciones. Es lo que valdría cada acción si se liquidara la empresa a precios contables.', lectura: 'Úsalo junto con el P/B. Si crece de forma estable, la empresa acumula valor.'},
+  cfps: {n: 'Flujo de caja por acción', que: 'Efectivo que generan las operaciones, repartido por acción. Es más difícil de manipular que la utilidad contable.', lectura: 'Si es mayor que el EPS, la empresa convierte bien sus ventas en caja.'},
+  fcfps: {n: 'Caja libre por acción (FCF)', que: 'El flujo de caja después de pagar las inversiones necesarias para mantener el negocio (capex). Es el dinero que de verdad sobra.', lectura: 'Divídelo entre el precio para obtener el rendimiento de caja libre. Sobre 5% es atractivo, bajo 2% es exigente.'},
+  sps: {n: 'Ventas por acción', que: 'Los ingresos totales divididos entre las acciones.', lectura: 'Sirve para ver si crecen las ventas sin que la emisión de acciones lo diluya.'},
+  roe: {n: 'Retorno sobre el patrimonio (ROE)', que: 'Cuánta utilidad genera la empresa por cada dólar de los accionistas.', lectura: 'Sobre 15% es bueno y sobre 20% muy bueno. Cuidado: un ROE alto con mucha deuda puede ser engañoso.'},
+  roa: {n: 'Retorno sobre los activos (ROA)', que: 'Cuánta utilidad produce cada dólar de activos, sin importar cómo se financiaron.', lectura: 'Sobre 5% es sano. Cada industria tiene su nivel; compara contra empresas similares.'},
+  gross: {n: 'Margen bruto', que: 'Porcentaje de las ventas que queda después de pagar el costo directo de producir.', lectura: 'Alto y estable (sobre 60% en tecnología médica) indica poder de precios. Si baja, hay presión de costos o de competencia.'},
+  opm: {n: 'Margen operativo', que: 'Porcentaje de las ventas que queda después de pagar todos los gastos de operar (producción, ventas, investigación, administración).', lectura: 'Entre más alto mejor. Que suba mientras las ventas crecen indica eficiencia.'},
+  tax: {n: 'Tasa de impuestos', que: 'Porcentaje de la utilidad antes de impuestos que se paga en impuestos.', lectura: 'Una tasa mucho menor a lo normal (15% a 25%) infla la utilidad. Pregunta si es permanente o de un solo año.'},
+  interest: {n: 'Tasa de interés promedio', que: 'Lo que la empresa paga en promedio por su deuda.', lectura: 'Menor es mejor. Si es mucho más baja que el retorno del negocio, la deuda trabaja a favor.'},
+  npm: {n: 'Margen neto', que: 'Porcentaje de cada dólar vendido que termina como utilidad neta, ya con impuestos e intereses.', lectura: 'Sobre 10% es bueno. Compara con el margen operativo: si están muy separados, hay costos financieros o impuestos pesados.'},
+  assetturn: {n: 'Rotación de activos', que: 'Ventas dividido entre activos totales. Mide cuánto vende la empresa por cada dólar que tiene invertido.', lectura: 'Depende de la industria. Lo útil es la tendencia: si sube, los activos trabajan más.'},
+  invturn: {n: 'Rotación de inventario', que: 'Cuántas veces al año la empresa vende y repone su inventario.', lectura: 'Más alto significa que el producto se vende rápido. Si cae mientras sube el inventario, puede haber demanda débil.'},
+  ltdebt: {n: 'Deuda de largo plazo sobre capital', que: 'Parte del capital total (deuda más patrimonio) que viene de deuda de largo plazo.', lectura: 'Bajo 40% es cómodo para la mayoría de las empresas. Sobre 60% exige vigilar.'},
+  leverage: {n: 'Apalancamiento financiero', que: 'Activos divididos entre patrimonio. Indica cuántos dólares de activos se sostienen con cada dólar propio.', lectura: 'Cerca de 1 casi no hay deuda. Entre 1.5 y 2.5 es normal. Más alto significa más riesgo en una crisis.'},
+  fixedcov: {n: 'Cobertura de cargos fijos', que: 'Cuántas veces la utilidad cubre los pagos obligatorios (intereses y arriendos).', lectura: 'Sobre 3 es sano y sobre 8 es muy holgado. Bajo 1.5 es una señal de alerta.'},
+  payout: {n: 'Razón de pago de dividendos', que: 'Porcentaje de la utilidad que se reparte como dividendo.', lectura: 'Entre 30% y 60% suele ser sostenible. N/A significa que no hay dividendo.'},
+  quick: {n: 'Razón rápida (quick ratio)', que: 'Efectivo, inversiones y cuentas por cobrar divididos entre las deudas de corto plazo. No cuenta el inventario.', lectura: 'Sobre 1 la empresa puede pagar sus deudas inmediatas sin vender inventario. Bajo 0.7 vigila la liquidez.'},
+  current: {n: 'Razón corriente', que: 'Activos de corto plazo divididos entre deudas de corto plazo.', lectura: 'Sobre 1 es lo mínimo sano, entre 1.5 y 2 es cómodo. La tendencia importa más que el número suelto.'},
+  pe: {n: 'Precio sobre utilidad (P/E)', que: 'Cuántos dólares pagas por cada dólar de utilidad anual. Un P/E de 17 significa que recuperarías tu inversión en 17 años con las utilidades de hoy.', lectura: 'Compáralo con el promedio histórico y con empresas similares. Bajo no siempre es barato: puede esperar que la utilidad caiga.'},
+  pcf: {n: 'Precio sobre flujo de caja', que: 'Lo mismo que el P/E, pero usando flujo de caja en lugar de utilidad contable.', lectura: 'Menor que su promedio histórico indica que está más barata que antes.'},
+  pb: {n: 'Precio sobre valor en libros (P/B)', que: 'Cuántas veces el valor contable del patrimonio paga el mercado.', lectura: 'Bajo 1.5 es barato para sectores con activos tangibles. En empresas con buen ROE se acepta más.'},
+  mcapeq: {n: 'Capitalización sobre patrimonio', que: 'Valor de mercado de la empresa dividido entre su patrimonio contable. Es un primo del P/B.', lectura: 'Si baja frente a su promedio, el mercado reconoce menos prima que antes.'},
+  divyield: {n: 'Rendimiento por dividendo', que: 'Dividendo anual dividido entre el precio. Es lo que cobras cada año solo por tener la acción.', lectura: 'N/A significa que no paga. Un rendimiento muy alto puede avisar de un precio caído.'},
+  divpayout: {n: 'Pago de dividendo sobre EPS', que: 'Lo mismo que la razón de pago, calculada con el EPS.', lectura: '0 significa que no reparte dividendos.'},
+  g_rev: {n: 'Crecimiento de ingresos', que: 'Cuánto subieron las ventas frente al periodo anterior. Se muestra el actual y el promedio anual de 3 y 5 años.', lectura: 'Si el actual es menor que el promedio, el crecimiento se está frenando. Es lo primero que vigila el mercado.'},
+  g_ni: {n: 'Crecimiento de utilidad neta', que: 'Cuánto subió la utilidad neta frente al periodo anterior.', lectura: 'Cuando crece mucho más que los ingresos, revisa si viene de impuestos bajos, ahorros puntuales o una base muy baja.'},
+  g_eps: {n: 'Crecimiento del EPS', que: 'Cuánto subió la utilidad por acción.', lectura: 'Si es menor que el de la utilidad neta, la empresa está emitiendo acciones y diluyendo. Si es mayor, recompra acciones.'},
+  g_dps: {n: 'Crecimiento del dividendo', que: 'Cuánto aumentó el dividendo por acción.', lectura: 'Aumentos constantes muestran confianza de la gerencia. N/A si no hay dividendo.'},
+  g_bvps: {n: 'Crecimiento del valor en libros', que: 'Cuánto crece el patrimonio contable por acción.', lectura: 'Un crecimiento estable muestra que la empresa acumula valor sin depender del precio de bolsa.'},
+  shares: {n: 'Acciones en circulación', que: 'El total de acciones emitidas por la empresa.', lectura: 'Si el número sube con el tiempo hay dilución. Si baja, la empresa recompra acciones.'},
+  float: {n: 'Flotante (float)', que: 'Acciones que se pueden comprar y vender libremente, sin contar las de directivos o accionistas que no venden.', lectura: 'Un flotante grande significa más liquidez. Uno pequeño hace al precio más volátil.'},
+  mcap: {n: 'Capitalización de mercado', que: 'Precio por acción multiplicado por las acciones en circulación. Es lo que el mercado dice que vale la empresa entera.', lectura: 'Sobre 10 mil millones es una empresa grande. Bajo 2 mil millones es pequeña y más riesgosa.'},
+  borrow: {n: 'Tamaño de préstamo aproximado', que: 'Cantidad aproximada de acciones disponibles para pedir prestadas y venderlas en corto (apostar a que baja).', lectura: 'Poca disponibilidad hace costoso apostar en contra. No es por sí solo una señal de que el precio caerá.'},
+  inst: {n: 'Propiedad institucional', que: 'Porcentaje de las acciones en manos de fondos, bancos y otros inversionistas profesionales.', lectura: 'Un nivel alto da respaldo, pero si los fondos salen a la vez, el precio lo siente.'}
+};
+var TONE_LABEL = {good: 'Sólido', ok: 'Normal', warn: 'Atención', bad: 'Débil'};
+var DATA = JSON.parse(document.getElementById('tickers-data').textContent);
+var state = {ticker: null, section: 'all', q: ''};
+try { state.ticker = localStorage.getItem('rf-ticker'); } catch (e) {}
+
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return {'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]; }); }
+function fmt(v, f) {
+  if (v === null || v === undefined) return 'N/A';
+  switch (f) {
+    case 'usd': return '$' + v.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    case 'pct': return v.toFixed(1) + '%';
+    case 'x': return v.toFixed(2) + 'x';
+    case 'int': return Math.round(v).toLocaleString('en-US');
+    case 'num': return v.toFixed(2);
+    default: return String(v);
+  }
+}
+function spark(vals, now) {
+  var pts = vals.slice(); if (now != null) pts.push(now);
+  pts = pts.filter(function (v) { return v != null; });
+  if (pts.length < 2) return '';
+  var w = 130, h = 40, pad = 4, min = Math.min.apply(null, pts), max = Math.max.apply(null, pts);
+  var span = max - min || 1;
+  var xy = pts.map(function (v, i) { return [pad + i * (w - 2 * pad) / (pts.length - 1), h - pad - (v - min) / span * (h - 2 * pad)]; });
+  var line = xy.map(function (p, i) { return (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1); }).join(' ');
+  var area = line + ' L' + xy[xy.length - 1][0].toFixed(1) + ' ' + (h - pad) + ' L' + xy[0][0].toFixed(1) + ' ' + (h - pad) + ' Z';
+  var last = xy[xy.length - 1];
+  return '<svg class="spark" viewBox="0 0 ' + w + ' ' + h + '" role="img" aria-label="Tendencia: de ' + fmt(pts[0], 'num') + ' a ' + fmt(pts[pts.length - 1], 'num') + '">' +
+    '<line x1="' + pad + '" x2="' + (w - pad) + '" y1="' + (h - pad) + '" y2="' + (h - pad) + '" stroke="var(--line)" stroke-width="1"/>' +
+    '<path d="' + area + '" fill="var(--accent-soft)"/><path d="' + line + '" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
+    '<circle cx="' + last[0].toFixed(1) + '" cy="' + last[1].toFixed(1) + '" r="3.5" fill="var(--accent)"/></svg>';
+}
+function cardHTML(r, periods) {
+  var c = CONCEPTS[r.key] || {n: r.label, que: '', lectura: ''};
+  var chg = '';
+  if (r.chg != null) chg = '<span class="sub ' + (r.chg >= 0 ? 'up' : 'down') + '">' + (r.chg >= 0 ? '▲ ' : '▼ ') + Math.abs(r.chg).toFixed(1) + '% crec. 5 años</span>';
+  var extras = (r.extras || []).filter(function (e) { return e.v != null; }).map(function (e) { return '<span class="sub">' + esc(e.l) + ': ' + fmt(e.v, e.fmt) + '</span>'; }).join('');
+  var sp = r.hist ? spark(r.hist, r.v) + '<div class="spark-labels"><span>' + esc((periods || [])[0] || '') + '</span><span>Ahora</span></div>' : '';
+  var tone = r.tone || 'ok';
+  return '<article class="card" data-s="' + esc(r.sec) + '">' +
+    '<div class="card-top"><div><h3>' + esc(c.n) + '</h3><div class="en">' + esc(r.label) + '</div></div><span class="pill t-' + tone + '">' + TONE_LABEL[tone] + '</span></div>' +
+    '<div class="num-row"><div><div class="big">' + fmt(r.v, r.fmt) + '</div>' + chg + '</div><div>' + sp + '</div></div>' +
+    (extras ? '<div class="extras">' + extras + '</div>' : '') +
+    '<div class="facts"><div><b>Qué es</b>' + esc(c.que) + '</div><div><b>Cómo leerlo</b>' + esc(c.lectura) + '</div>' +
+    (r.note ? '<div class="mine"><b>En esta empresa</b>' + esc(r.note) + '</div>' : '') + '</div></article>';
+}
+function render() {
+  var app = document.getElementById('app');
+  var keys = Object.keys(DATA.tickers);
+  if (!keys.length) { app.innerHTML = '<header><h1>Radar de Fundamentales</h1><p class="muted">Aún no hay empresas. Comparte una captura de thinkorswim con la skill analizador-thinkorswim para agregar la primera.</p></header>'; return; }
+  if (!state.ticker || !DATA.tickers[state.ticker]) state.ticker = DATA.default && DATA.tickers[DATA.default] ? DATA.default : keys[0];
+  var d = DATA.tickers[state.ticker], a = d.analysis || {}, v = a.verdict || {tone: 'ok', rating: 'Sin analizar', headline: ''};
+  var rows = [];
+  d.sections.forEach(function (s) { s.rows.forEach(function (r) { r.sec = s.id; rows.push(r); }); });
+
+  var h = '<header><div class="head-top"><div><div class="eyebrow">Radar de fundamentales</div><h1>' + esc(d.name) + ' <span class="mono muted" style="font-size:.55em">' + esc(d.ticker) + '</span></h1>' +
+    '<p class="muted">' + esc(d.exchange) + ' · datos de ' + esc(d.source) + ' · análisis al ' + esc(d.asOf) + '</p></div>' +
+    '<div class="tickers" role="group" aria-label="Empresa">' + keys.map(function (k) { return '<button class="chip" data-t="' + esc(k) + '" aria-pressed="' + (k === state.ticker) + '">' + esc(k) + '</button>'; }).join('') + '</div></div></header>';
+
+  h += '<section><div class="verdict"><span class="pill t-' + v.tone + '">' + esc(v.rating) + '</span><div class="headline">' + esc(v.headline) + '</div><p class="summary">' + esc(a.summary) + '</p></div>';
+  if (a.tiles) h += '<div class="tiles">' + a.tiles.map(function (t) { return '<div class="tile ' + (t.tone || '') + '"><span class="k">' + esc(t.label) + '</span><span class="v">' + esc(t.value) + '</span><span class="s">' + esc(t.sub) + '</span></div>'; }).join('') + '</div>';
+  if (a.range) {
+    var pos = Math.max(0, Math.min(100, (a.range.price - a.range.low) / (a.range.high - a.range.low) * 100));
+    h += '<div class="range"><div class="eyebrow">' + esc(a.range.label) + '</div><div class="range-bar"><span class="range-dot" style="left:' + pos.toFixed(1) + '%"></span></div><div class="range-ends mono"><span>Mínimo ' + fmt(a.range.low, 'usd') + '</span><span>Hoy ' + fmt(a.range.price, 'usd') + ' (' + pos.toFixed(0) + '% del rango)</span><span>Máximo ' + fmt(a.range.high, 'usd') + '</span></div></div>';
+  }
+  h += '</section>';
+
+  if (a.scores) h += '<section><div class="sec-head"><h2>Salud financiera en seis puntos</h2><p>Cada nota va de 0 a 10 y resume los ratios de abajo. No es una predicción, es una lectura del estado actual.</p></div><div class="panel"><div class="scores">' +
+    a.scores.map(function (s) { return '<div class="score"><span class="name">' + esc(s.label) + '</span><div class="bar" role="img" aria-label="' + s.score + ' de 10"><i style="width:' + (s.score * 10) + '%"></i></div><span class="text"><span class="num">' + s.score + '/10</span> · ' + esc(s.text) + '</span></div>'; }).join('') + '</div></div></section>';
+
+  if (a.strengths || a.risks) h += '<section><div class="sec-head"><h2>Fortalezas y riesgos</h2></div><div class="grid2"><div class="panel"><h3>Lo que juega a favor</h3><ul>' + (a.strengths || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div><div class="panel"><h3>Lo que puede salir mal</h3><ul>' + (a.risks || []).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div></div></section>';
+
+  if (a.scenarios) h += '<section><div class="sec-head"><h2>Escenarios a 12 meses</h2><p>Las probabilidades son un criterio subjetivo del análisis y suman 100%.</p></div><div class="scen">' +
+    a.scenarios.map(function (s) { return '<div class="panel"><span class="pill t-' + s.tone + '">' + esc(s.name) + '</span><span class="px">' + esc(s.price) + '</span><span class="p">Probabilidad ' + s.prob + '%</span><p>' + esc(s.text) + '</p></div>'; }).join('') + '</div></section>';
+
+  if (a.plan) h += '<section><div class="sec-head"><h2>Plan operativo</h2><p>Pensado para una cartera de riesgo moderado y horizonte de 3 a 12 meses.</p></div><div class="panel"><dl class="plan">' + a.plan.map(function (p) { return '<dt>' + esc(p.label) + '</dt><dd>' + esc(p.value) + '</dd>'; }).join('') + '</dl></div></section>';
+
+  h += '<section><div class="sec-head"><h2>Diccionario con tus números</h2><p>Cada concepto de thinkorswim explicado en sencillo, con el valor de ' + esc(d.ticker) + ', su tendencia de ' + esc((d.periods || [])[0] || '') + ' a hoy y una lectura puntual.</p></div>' +
+    '<div class="toolbar" role="group" aria-label="Filtrar conceptos"><button class="chip" data-s="all" aria-pressed="' + (state.section === 'all') + '">Todos</button>' +
+    d.sections.map(function (s) { return '<button class="chip" data-s="' + esc(s.id) + '" aria-pressed="' + (state.section === s.id) + '">' + esc(s.title) + '</button>'; }).join('') +
+    '<input id="q" type="search" placeholder="Buscar concepto" aria-label="Buscar concepto" value="' + esc(state.q) + '"></div>' +
+    '<div class="cards" id="cards"></div></section>';
+
+  h += '<footer>' + (a.sources ? '<div><b>Fuentes</b><ul>' + a.sources.map(function (s) { return '<li><a href="' + esc(s.u) + '" target="_blank" rel="noopener">' + esc(s.t) + '</a></li>'; }).join('') + '</ul></div>' : '') + '<p><em>' + esc(a.disclaimer || '') + '</em></p></footer>';
+  app.innerHTML = h;
+
+  function fill() {
+    var q = state.q.trim().toLowerCase();
+    var list = rows.filter(function (r) {
+      if (state.section !== 'all' && r.sec !== state.section) return false;
+      if (!q) return true;
+      var c = CONCEPTS[r.key] || {n: ''};
+      return (c.n + ' ' + r.label).toLowerCase().indexOf(q) > -1;
+    });
+    document.getElementById('cards').innerHTML = list.length ? list.map(function (r) { return cardHTML(r, d.periods); }).join('') : '<p class="muted">Ningún concepto coincide con la búsqueda.</p>';
+  }
+  fill();
+  app.querySelectorAll('.tickers .chip').forEach(function (b) { b.addEventListener('click', function () { state.ticker = b.dataset.t; state.section = 'all'; state.q = ''; try { localStorage.setItem('rf-ticker', state.ticker); } catch (e) {} render(); window.scrollTo(0, 0); }); });
+  app.querySelectorAll('.toolbar .chip').forEach(function (b) { b.addEventListener('click', function () { state.section = b.dataset.s; app.querySelectorAll('.toolbar .chip').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); }); fill(); }); });
+  document.getElementById('q').addEventListener('input', function (e) { state.q = e.target.value; fill(); });
+}
+render();
+</script>
