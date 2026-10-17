@@ -14,7 +14,7 @@ El conector de Higgsfield en Claude solo permite ver créditos (`balance`), list
 ## Flujo
 
 0. **Consultar el cerebro de prompts** (ver sección más abajo) antes de escribir nada nuevo.
-1. **Entender el pedido.** Define producto, objetivo (vender, mostrar ajuste, lanzar), plataforma (Reels, TikTok, anuncio, tienda), público, tono y qué imágenes tiene. Si el producto está en Shopify y hay conector, tómalo de ahí (título, colores, descripción). Pregunta solo lo que falte y que cambie el resultado, máximo 3 preguntas.
+1. **Entender el pedido.** Define producto, objetivo (vender, mostrar ajuste, lanzar), plataforma (Reels, TikTok, anuncio, tienda), público, tono y qué imágenes tiene. Busca el producto primero en la pestaña **Productos** del cerebro (colección `products`, ver más abajo): ahí están los que el usuario ya cargó en Higgsfield, con su nombre e ID. Si no está, tómalo de Shopify si hay conector (título, colores, descripción), y si tampoco, pregunta. Pregunta solo lo que falte y que cambie el resultado, máximo 3 preguntas.
 2. **Elegir herramienta y modelo** con la tabla de abajo.
 3. **Escribir el prompt** con la estructura de abajo.
 4. **Entregar el paquete** en el formato de salida.
@@ -77,3 +77,11 @@ Los prompts y sus resultados viven en esta página: https://claude.ai/artifact/A
 **Campos de cada ficha:** `title`, `product`, `format` (UGC, Probador virtual, Unboxing, Reseña de producto, Cinematográfico, Producto en detalle, Otro), `model`, `params`, `prompt`, `status` (`sin`, `func`, `fav`, `desc`), `quality`, `attempts`, `views`, `saves`, `clicks`, `sales`, `utm`, `notes`, `createdAt`, `updatedAt` (milisegundos). Mantén exactamente estos nombres: la página los lee tal cual.
 
 Si no puedes acceder a la biblioteca (herramienta no disponible o error de permisos), sigue con el flujo normal, entrega el prompt y avisa que no quedó guardado.
+
+## Catálogo de productos (colección `products`)
+
+El conector de Higgsfield no lista los productos del usuario, así que este catálogo es la fuente para saber qué hay cargado allá. Antes de armar un video, lee la ficha del producto con `get` o `query`: usa `hfName` y `hfId` para decirle al usuario qué producto elegir en Marketing Studio (`product_ids`), y respeta `notes` (detalles que no pueden cambiar) y `photo` (qué foto subir como referencia).
+
+**Campos:** `name`, `category` (Mujer, Hombre, Accesorios, Calzado, Otro), `brand`, `hfName`, `hfId`, `price` (COP), `stock`, `sizes`, `colors`, `shopify` (`no`, `draft`, `pub`), `shopifyUrl`, `photo`, `notes`, `createdAt`, `updatedAt` (milisegundos). Usa exactamente estos nombres.
+
+Si el usuario te da una lista de productos (texto o captura), regístralos con `batch`; deja `hfName` y `hfId` vacíos si no los dio, sin inventarlos. Cuando guardes un prompt, el campo `product` de la ficha debe coincidir con el `name` del producto.
