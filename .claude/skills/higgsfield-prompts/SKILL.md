@@ -13,7 +13,7 @@ El conector de Higgsfield en Claude solo permite ver créditos (`balance`), list
 
 ## Flujo
 
-0. **Consultar el cerebro de prompts** (ver sección más abajo) antes de escribir nada nuevo.
+0. **Leer el contexto de marca** (`references/brand-video-strategy.md`: los cuatro marcos de video y los requisitos de guion) y **consultar el cerebro de prompts** (ver sección más abajo) antes de escribir nada nuevo.
 1. **Entender el pedido.** Define producto, objetivo (vender, mostrar ajuste, lanzar), plataforma (Reels, TikTok, anuncio, tienda), público, tono y qué imágenes tiene. Busca el producto primero en la pestaña **Productos** del cerebro (colección `products`, ver más abajo): ahí están los que el usuario ya cargó en Higgsfield, con su nombre e ID. Si no está, tómalo de Shopify si hay conector (título, colores, descripción), y si tampoco, pregunta. Pregunta solo lo que falte y que cambie el resultado, máximo 3 preguntas.
 2. **Elegir herramienta y modelo** con la tabla de abajo.
 3. **Escribir el prompt** con la estructura de abajo.
@@ -85,3 +85,10 @@ El conector de Higgsfield no lista los productos del usuario, así que este cat�
 **Campos:** `name`, `category` (Mujer, Hombre, Accesorios, Calzado, Otro), `brand`, `hfName`, `hfId`, `price` (COP), `stock`, `sizes`, `colors`, `shopify` (`no`, `draft`, `pub`), `shopifyUrl`, `photo`, `notes`, `createdAt`, `updatedAt` (milisegundos). Usa exactamente estos nombres.
 
 Si el usuario te da una lista de productos (texto o captura), regístralos con `batch`; deja `hfName` y `hfId` vacíos si no los dio, sin inventarlos. Cuando guardes un prompt, el campo `product` de la ficha debe coincidir con el `name` del producto.
+
+## Contexto de marca y gustos
+
+- **Marcos de video:** `references/brand-video-strategy.md` define cuatro formatos (A Action Lookbook, B De la pereza al aire libre, C El equipo detrás de la costura, D Probador comunitario/GRWM). Elige uno según el objetivo y dilo en el paquete. El mismo texto vive en el cerebro (colección `strategy`).
+- **Guiones y planes:** cuando el usuario pida guion o plan, entrega siempre 3 ganchos para los primeros 3 segundos, columna visual (planos y cámara), columna de audio (música, efectos, locución) y texto en pantalla. El archivo de referencia llegó cortado en el punto 4, así que si hace falta el resto, pídeselo al usuario.
+- **Videos de referencia:** la colección `references` del cerebro guarda enlaces de videos que le llamaron la atención al usuario (con `why`, lo que le gustó, cuando lo anotó). Léela antes de escribir y úsala para el estilo. Si una referencia no tiene `why`, no supongas su contenido: no se pudo ver el video, pregunta.
+- **Duración:** los modelos de Higgsfield generan clips de 15 s o menos (Marketing Studio 12-15 s, Seedance 2.0 hasta 15 s, FLUX 3 Video hasta 20 s). Un video de 30 s se hace con 2 clips que se unen al editar: entrega un prompt por clip y una sola línea de continuidad (mismo avatar, mismos productos, mismo vestuario y luz).
