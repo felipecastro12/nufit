@@ -1,0 +1,213 @@
+{
+  "ticker": "STNE",
+  "name": "StoneCo",
+  "exchange": "Nasdaq · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Satélite especulativo",
+      "tone": "warn",
+      "headline": "La más barata de la lista (≈ 3.3x utilidad 2027), pero su guía se recortó y es la que menos calidad tiene."
+    },
+    "summary": "StoneCo cotiza a unas 3.3 veces la utilidad de 2027 según su propia guía, que es una valoración de pánico. El problema es que esa guía ya se recortó 29% por tasas altas, morosidad y competencia, y cayó 36% en premarket. El fair value base de $10.5 da 42% de potencial, el mayor del grupo, pero con la fecha de resultados sin confirmar y poca visibilidad. Encaja solo como posición pequeña y especulativa dentro del mandato.",
+    "tiles": [
+      {
+        "label": "Precio",
+        "value": "$7.38",
+        "sub": "Premarket 26-oct (−35.7% vs ≈ $11.48)"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$10.5",
+        "sub": "Rango $6.5 a $15",
+        "tone": "good"
+      },
+      {
+        "label": "P/E 2027 (guía)",
+        "value": "≈ 3.3x",
+        "sub": "R$12.6 ÷ 5.60 = $2.25",
+        "tone": "good"
+      },
+      {
+        "label": "Guía EPS 2027",
+        "value": "R$11.8 a 13.4",
+        "sub": "Recortada 29%",
+        "tone": "bad"
+      },
+      {
+        "label": "EPS Q2",
+        "value": "≈ $0.46",
+        "sub": "Fuentes difieren: $0.463 y $0.47"
+      },
+      {
+        "label": "ROE Q4 2025",
+        "value": "26%",
+        "sub": "Dato más reciente hallado"
+      }
+    ],
+    "fair": {
+      "price": 7.38,
+      "priceTag": "premarket 26-oct",
+      "low": 6.5,
+      "base": 10.5,
+      "high": 15,
+      "method": "Utilidad por acción ajustada de la guía 2026 y 2027 de la empresa (en reales, convertida a $5.60) por un múltiplo de 4x a 6.5x, propio de una empresa de pagos brasileña con crédito.",
+      "assumptions": [
+        {
+          "label": "Guía EPS ajustado",
+          "value": "2026: R$10.8 a 11.4. 2027: R$11.8 a 13.4 (recortada 29% desde R$15.0)"
+        },
+        {
+          "label": "En dólares a R$5.60",
+          "value": "≈ $2.1 base (R$11.8), $1.8 bajista, $2.3 alcista"
+        },
+        {
+          "label": "Múltiplo",
+          "value": "5x base, 4x bajista, 6.5x alcista. Antes del shock pagaba ≈ 5.5x."
+        },
+        {
+          "label": "Recompra",
+          "value": "R$2 mil millones previstos en 2026; la guía de 2027 no incluye más"
+        }
+      ],
+      "caveat": "Los reales se convirtieron a $5.60, que ya refleja el golpe; si el real recupera, la utilidad en dólares sube. Los precios del viernes difieren entre fuentes ($11.15 y $8.11)."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 3,
+        "text": "La guía 2027 se recortó 29%."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 7,
+        "text": "ROE de 26%."
+      },
+      {
+        "label": "Retorno al accionista",
+        "score": 6,
+        "text": "R$2 mil millones de recompras previstas en 2026."
+      },
+      {
+        "label": "Valoración",
+        "score": 9,
+        "text": "≈ 3.3x la utilidad 2027 de su guía."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 2,
+        "text": "Todo en reales, con crédito a pymes."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 1,
+        "text": "Guía recortada y caída de 36% en una sesión."
+      }
+    ],
+    "strengths": [
+      "Valoración extremadamente baja.",
+      "ROE de 26% y recompras.",
+      "Mayor potencial del grupo si el real y las tasas ayudan."
+    ],
+    "risks": [
+      "Guía recortada 29% para 2027.",
+      "Morosidad y competencia en pagos para pymes.",
+      "Selic alta presiona el costo de fondeo.",
+      "Fecha del Q3 sin confirmar (5, 12 o 17-nov).",
+      "Los precios del viernes difieren entre fuentes."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 6.5,
+        "price": "$6.50",
+        "tone": "bad",
+        "text": "Otro recorte de guía, mayor morosidad y competencia: el mercado paga 3.5x a 4x."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 10.5,
+        "price": "$10.50",
+        "tone": "warn",
+        "text": "La guía se cumple y el múltiplo vuelve a 5x."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 15,
+        "price": "$15.00",
+        "tone": "good",
+        "text": "Recompras y estabilidad llevan el múltiplo a 6.5x."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Satélite especulativo, no es parte del núcleo"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$7 a $8 con una posición pequeña"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre bajo $6 o un nuevo recorte de guía"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$9"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$10.5"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "Hasta 1% de la cartera total"
+      }
+    ],
+    "brazil": {
+      "level": "Muy alta",
+      "summary": "Pagos y crédito a pequeñas empresas brasileñas.",
+      "points": [
+        {
+          "label": "Morosidad",
+          "text": "Las pymes son las primeras en sufrir con tasas altas."
+        },
+        {
+          "label": "Fondeo",
+          "text": "La Selic en 13.75% encarece el crédito que otorga."
+        },
+        {
+          "label": "Cambio",
+          "text": "Una guía en reales vale menos en dólares si el real sigue débil."
+        }
+      ]
+    },
+    "next": "Q3: 5, 12 o 17-nov",
+    "sources": [
+      {
+        "t": "Benzinga: por qué cae StoneCo",
+        "u": "https://www.benzinga.com/trading-ideas/movers/26/10/62586123/why-is-stoneco-stock-tumbling-on-monday"
+      },
+      {
+        "t": "Rio Times: StoneCo recorta su guía 2027",
+        "u": "https://www.riotimesonline.com/stoneco-misses-estimates-slashes-2027-guidance-by-29/"
+      },
+      {
+        "t": "StockAnalysis: STNE",
+        "u": "https://stockanalysis.com/stocks/stne/"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar."
+  }
+}

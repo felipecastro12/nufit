@@ -1,0 +1,202 @@
+{
+  "ticker": "EWZS",
+  "name": "iShares MSCI Brazil Small-Cap ETF",
+  "exchange": "Nasdaq · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "etf",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Esperar",
+      "tone": "warn",
+      "headline": "Es el vehículo de menor liquidez y no tengo precio de hoy: no hay base para comprar todavía."
+    },
+    "summary": "EWZS reúne 67 empresas pequeñas brasileñas, centradas en el mercado interno (TOTVS, Sendas, Copasa). Ganaría más que el índice si baja la Selic, pero también cae más cuando las tasas suben, y es el activo con peor liquidez de la lista ($234M en activos). Como no encontré el precio de hoy y el potencial estimado es de 5%, la acción prudente es esperar y ver el spread en vivo antes de operar.",
+    "tiles": [
+      {
+        "label": "Último precio",
+        "value": "$16.14",
+        "sub": "14-oct, antes del shock"
+      },
+      {
+        "label": "Estimado hoy",
+        "value": "≈ $12.6",
+        "sub": "Supuesto mío (−22%)",
+        "tone": "warn"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$13.2",
+        "sub": "Rango $10.5 a $16"
+      },
+      {
+        "label": "Costo anual",
+        "value": "0.59%",
+        "sub": "Comisión de gestión"
+      },
+      {
+        "label": "Posiciones",
+        "value": "67",
+        "sub": "10 mayores: 38% de los activos"
+      },
+      {
+        "label": "Activos",
+        "value": "$234M",
+        "sub": "Liquidez limitada",
+        "tone": "warn"
+      }
+    ],
+    "fair": {
+      "price": 12.6,
+      "priceTag": "estimado (sin dato de hoy)",
+      "low": 10.5,
+      "base": 13.2,
+      "high": 16,
+      "method": "Último precio verificado ($16.14 el 14-oct) ajustado por el real (−11%) y por más sensibilidad a tasas (−8%).",
+      "assumptions": [
+        {
+          "label": "Último precio",
+          "value": "$16.14 el 14-oct. No hallé precio de hoy."
+        },
+        {
+          "label": "Estimación de hoy",
+          "value": "≈ $12.6, equivalente a una caída de 22%. Es mi supuesto: las pequeñas empresas locales se mueven como el índice o más."
+        },
+        {
+          "label": "Ajustes",
+          "value": "16.14 × 0.887 (real) × 0.92 (tasas) ≈ $13.2 de fair value base"
+        }
+      ],
+      "caveat": "El precio de hoy es una estimación mía. El fondo es pequeño ($234M) y su spread puede ser amplio."
+    },
+    "scores": [
+      {
+        "label": "Diversificación",
+        "score": 7,
+        "text": "67 empresas y 38% en las 10 mayores."
+      },
+      {
+        "label": "Costo",
+        "score": 5,
+        "text": "Comisión de 0.59%."
+      },
+      {
+        "label": "Liquidez",
+        "score": 3,
+        "text": "Fondo de $234M: spread y volumen pueden ser un problema."
+      },
+      {
+        "label": "Valoración",
+        "score": 5,
+        "text": "Sin precio de hoy."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 1,
+        "text": "Solo empresas locales pequeñas."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 2,
+        "text": "Sin datos del día."
+      }
+    ],
+    "strengths": [
+      "Empresas orientadas al mercado interno que se benefician de un recorte de tasas.",
+      "Más diversificado por empresa que EWZ."
+    ],
+    "risks": [
+      "Liquidez baja y spreads amplios.",
+      "Muy sensible a tasas y al real.",
+      "Sin precio de hoy confirmado.",
+      "Puede quedar fuera del mandato de liquidez diaria."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 10.5,
+        "price": "$10.50",
+        "tone": "bad",
+        "text": "Selic al alza y real débil golpean a las empresas locales pequeñas."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 13.2,
+        "price": "$13.20",
+        "tone": "warn",
+        "text": "Recuperación parcial con el real cerca de 5.6."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 16,
+        "price": "$16.00",
+        "tone": "good",
+        "text": "Recortes de tasa y señal fiscal permiten una recuperación fuerte."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Esperar; solo con orden limitada y spread bajo"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$11 a $12.5 si se confirma"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $10"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$13"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$13.2 a $16"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "Hasta 1% de la cartera total"
+      }
+    ],
+    "brazil": {
+      "level": "Total",
+      "summary": "Pequeñas empresas locales, con la mayor sensibilidad a tasas.",
+      "points": [
+        {
+          "label": "Tasas",
+          "text": "Una Selic alta golpea más a las pequeñas por su deuda."
+        },
+        {
+          "label": "Liquidez",
+          "text": "En días de pánico, el spread se amplía."
+        }
+      ]
+    },
+    "next": "Copom: 4-nov",
+    "sources": [
+      {
+        "t": "iShares: EWZS ficha del 30-sep-2026",
+        "u": "https://www.ishares.com/us/literature/fact-sheet/ewzs-ishares-msci-brazil-small-cap-etf-fund-fact-sheet-en-us.pdf"
+      },
+      {
+        "t": "AAII: EWZS",
+        "u": "https://www.aaii.com/etf/ticker/EWZS"
+      },
+      {
+        "t": "ETFdb: EWZS",
+        "u": "https://etfdb.com/etf/EWZS/"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar."
+  }
+}

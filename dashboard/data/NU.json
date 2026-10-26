@@ -1,0 +1,227 @@
+{
+  "ticker": "NU",
+  "name": "Nu Holdings",
+  "exchange": "NYSE · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Acumular en tramos",
+      "tone": "good",
+      "headline": "Negocio de primera con precio de crisis política, pero casi todo su negocio está en Brasil."
+    },
+    "summary": "Nu tuvo su primer trimestre de más de mil millones de dólares (utilidad de $1.06B, +49%) con ROE de 33%. La acción cayó cerca de 26% en premarket por el cambio de gobierno, aunque el negocio de ayer es el mismo. Con el fair value base de $13.5 hay un potencial de 20%, y el mercado ya descontó parte del golpe del tipo de cambio. Lo que no se sabe es cuánto sube la morosidad con tasas altas por más tiempo. Por eso se entra en tramos y se espera el resultado del 12 de noviembre para completar.",
+    "tiles": [
+      {
+        "label": "Precio",
+        "value": "$11.24",
+        "sub": "Premarket 26-oct (−25.8% vs $15.16)"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$13.5",
+        "sub": "Rango $9.5 a $17.5",
+        "tone": "good"
+      },
+      {
+        "label": "ROE Q2 2026",
+        "value": "33%",
+        "sub": "Era 29% en Q1 y 28% hace un año",
+        "tone": "good"
+      },
+      {
+        "label": "Utilidad Q2",
+        "value": "$1.06B",
+        "sub": "+49% anual, primer trimestre sobre $1B",
+        "tone": "good"
+      },
+      {
+        "label": "Clientes",
+        "value": "138.9 M",
+        "sub": "118 M Brasil, 16 M México, 5 M Colombia"
+      },
+      {
+        "label": "P/E 2027 ajustado",
+        "value": "≈ 11.7x",
+        "sub": "$11.24 ÷ $0.96",
+        "tone": "good"
+      }
+    ],
+    "fair": {
+      "price": 11.24,
+      "priceTag": "premarket 26-oct",
+      "low": 9.5,
+      "base": 13.5,
+      "high": 17.5,
+      "method": "Utilidad por acción esperada para 2027 por el consenso ($1.11), ajustada por el tipo de cambio y por más riesgo de crédito, multiplicada por un múltiplo de 10x a 17x. No es un flujo de caja descontado.",
+      "assumptions": [
+        {
+          "label": "EPS 2027 del consenso",
+          "value": "$1.11 (Yahoo, 16 analistas; WallStreetZen $1.15)"
+        },
+        {
+          "label": "Ajuste por tipo de cambio",
+          "value": "−9%: cerca de 80% de la utilidad es en reales y el real perdió 11% frente al dólar"
+        },
+        {
+          "label": "Ajuste por crédito y tasas",
+          "value": "−5% por más morosidad y menos recortes de Selic"
+        },
+        {
+          "label": "EPS 2027 ajustado",
+          "value": "≈ $0.96 (base), $0.85 (bajista), $1.05 (alcista)"
+        },
+        {
+          "label": "Múltiplo",
+          "value": "14x base, 11x bajista, 17x alcista. Antes de la elección cotizaba cerca de 13.7x el EPS de 2027."
+        }
+      ],
+      "caveat": "El 80% de la utilidad en reales y el −5% por crédito son supuestos míos. Los targets de los analistas ($18.9 de consenso, $20.5 de UBS el 20-oct) se publicaron antes del shock."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 9,
+        "text": "Ingresos +39% y utilidad +49% anual, con 83.5% de clientes activos."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 9,
+        "text": "ROE de 33% y subiendo."
+      },
+      {
+        "label": "Calidad del crédito",
+        "score": 5,
+        "text": "Sin datos de morosidad verificados. Es el riesgo central con Selic en 13.75%."
+      },
+      {
+        "label": "Valoración",
+        "score": 7,
+        "text": "≈ 11.7x el EPS de 2027 ajustado para un ROE de 33%."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 3,
+        "text": "118 de 139 millones de clientes (85%) están en Brasil."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 3,
+        "text": "Caída de 26% en una sesión. Los analistas aún no recalculan sus precios objetivo."
+      }
+    ],
+    "strengths": [
+      "Primer trimestre con más de $1B de utilidad y ROE de 33%.",
+      "México y Colombia suman 21 millones de clientes y diversifican algo el riesgo.",
+      "Antes del shock, el consenso apuntaba a $18.9 y UBS subió su objetivo a $20.5.",
+      "Float y liquidez muy altas, dentro del mandato."
+    ],
+    "risks": [
+      "85% de los clientes están en Brasil y el negocio de crédito sufre si la Selic se queda alta.",
+      "Una caída de 11% del real baja la utilidad medida en dólares aunque el negocio no cambie.",
+      "Un gobierno con déficit alto podría buscar más impuestos o regulación sobre bancos (hipótesis, no confirmado).",
+      "Nu pesa cerca de 8.5% de EWZ: tener ambos duplica la exposición.",
+      "Resultado del Q3 el 12-nov: un salto de morosidad rompería la tesis."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 9.5,
+        "price": "$9.50",
+        "tone": "bad",
+        "text": "Crédito se deteriora con tasas altas, el real sigue débil y el mercado paga 10x a 11x la utilidad de 2027."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 13.5,
+        "price": "$13.50",
+        "tone": "warn",
+        "text": "Mantiene ROE de 30% o más, el real se estabiliza cerca de 5.6 y el mercado paga 14x."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 17.5,
+        "price": "$17.50",
+        "tone": "good",
+        "text": "Gobierno envía una señal fiscal creíble, el real recupera y el múltiplo vuelve a 17x."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Acumular en 3 tramos"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$10.5 a $12 el primer tramo. Segundo tramo después del Q3 si el ROE sigue sobre 30% y la morosidad es estable"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $9.0 (cerca de −20%) o un salto de morosidad"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$12.5"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$13.5 (fair value base)"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "1% a 2% de la cartera total, dentro del cupo conjunto de Brasil"
+      }
+    ],
+    "brazil": {
+      "level": "Muy alta",
+      "summary": "Cerca de 85% de sus clientes están en Brasil y todo se mide en dólares.",
+      "points": [
+        {
+          "label": "Tipo de cambio",
+          "text": "Ganancias en reales valen 11% menos en dólares desde el viernes."
+        },
+        {
+          "label": "Tasas y crédito",
+          "text": "Menos recortes de Selic significan más morosidad y un costo de fondeo mayor."
+        },
+        {
+          "label": "Múltiplo",
+          "text": "Exigen más retorno por el riesgo país, así que el mismo EPS vale menos."
+        },
+        {
+          "label": "Protección",
+          "text": "México y Colombia aportan poco todavía, pero crecen."
+        }
+      ]
+    },
+    "next": "Q3: 12-nov",
+    "sources": [
+      {
+        "t": "Benzinga: Nu cae tras la victoria de Lula",
+        "u": "https://www.benzinga.com/trading-ideas/movers/26/10/62591970/nu-stock-crashes-after-lula-defeats-bolsonaro-in-runoff"
+      },
+      {
+        "t": "Nu: resultados del segundo trimestre de 2026",
+        "u": "https://www.businesswire.com/news/home/20260813187996/en/Nu-Holdings-Ltd.-Reports-Second-Quarter-2026-Financial-Results"
+      },
+      {
+        "t": "Yahoo Finance: estimaciones de analistas de NU",
+        "u": "https://finance.yahoo.com/quote/NU/analysis/"
+      },
+      {
+        "t": "StockAnalysis: NU",
+        "u": "https://stockanalysis.com/stocks/nu/"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar."
+  }
+}

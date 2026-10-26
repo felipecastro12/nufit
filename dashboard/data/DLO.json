@@ -1,0 +1,208 @@
+{
+  "ticker": "DLO",
+  "name": "dLocal",
+  "exchange": "Nasdaq · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Mantener y esperar precio",
+      "tone": "warn",
+      "headline": "Es la menos expuesta de la lista, pero está cerca de su máximo y no hay margen de seguridad."
+    },
+    "summary": "dLocal procesa pagos transfronterizos en varios mercados emergentes, así que depende menos de Brasil que el resto, aunque Brasil sigue siendo un mercado importante. En el último dato cotizaba a $15.06, cerca de su máximo de 52 semanas, y a un fair value base de $15 no hay potencial. Lo razonable es esperar a ver cuánto cayó hoy: si baja a $13 o menos, el potencial supera 15% y sí hay razón para comprar.",
+    "tiles": [
+      {
+        "label": "Último precio",
+        "value": "$15.06",
+        "sub": "Sin dato de hoy; 52 semanas $10.64 a $16.15"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$15",
+        "sub": "Rango $11 a $19"
+      },
+      {
+        "label": "Ingresos Q2",
+        "value": "$399.7M",
+        "sub": "Reporte del 13-ago"
+      },
+      {
+        "label": "Utilidad Q2",
+        "value": "$54.6M",
+        "sub": "13.7% de margen neto"
+      },
+      {
+        "label": "EPS Q2",
+        "value": "$0.18",
+        "sub": "Frente a $0.19 esperado",
+        "tone": "warn"
+      },
+      {
+        "label": "Objetivo del consenso",
+        "value": "$18.7",
+        "sub": "Truist bajó a $17 el 23-oct"
+      }
+    ],
+    "fair": {
+      "price": 15.06,
+      "priceTag": "último dato (sin precio de hoy)",
+      "low": 11,
+      "base": 15,
+      "high": 19,
+      "method": "Utilidad por acción esperada (≈ $0.85) multiplicada por un múltiplo de 14x a 20x, y comparada con el objetivo de los analistas ($18.7 de consenso, Truist $17 el 23-oct).",
+      "assumptions": [
+        {
+          "label": "EPS",
+          "value": "≈ $0.85: Q2 $0.18 y consenso del Q3 de $0.22. Es mi estimación; no hallé consenso anual."
+        },
+        {
+          "label": "Múltiplo",
+          "value": "17x base, 14x bajista, 20x alcista"
+        },
+        {
+          "label": "Precio objetivo del mercado",
+          "value": "$18.7 de consenso, mínimo $15, máximo $21"
+        },
+        {
+          "label": "Efecto Brasil",
+          "value": "−5% sobre el valor previo por real y volumen, supuesto mío"
+        }
+      ],
+      "caveat": "No encontré cómo se movió dLocal hoy. El fair value es neutral y el precio es el último conocido ($15.06, cerca del máximo de 52 semanas): puede estar más barato hoy."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 7,
+        "text": "Ingresos de $399.7M por trimestre."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 6,
+        "text": "13.7% de margen neto."
+      },
+      {
+        "label": "Valoración",
+        "score": 5,
+        "text": "Cercana al precio justo según la estimación."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 6,
+        "text": "Opera en varios países, con Brasil como uno de los grandes."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 5,
+        "text": "Consenso de compra, pero Truist recortó su objetivo."
+      }
+    ],
+    "strengths": [
+      "Menor exposición a Brasil que el resto.",
+      "Cerca de un máximo, señal de que el mercado confiaba en su ejecución.",
+      "Consenso de compra con objetivos sobre el precio."
+    ],
+    "risks": [
+      "Brasil sigue siendo un mercado importante y puede frenar el volumen.",
+      "EPS del Q2 por debajo de lo esperado.",
+      "Si el mercado vende todo lo emergente, arrastrará a dLocal.",
+      "Precio de hoy sin confirmar.",
+      "Resultado del Q3 hacia el 11 o 12-nov."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 11,
+        "price": "$11.00",
+        "tone": "bad",
+        "text": "Menos volumen en Brasil, márgenes más bajos y el mercado paga 14x."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 15,
+        "price": "$15.00",
+        "tone": "warn",
+        "text": "Crece a buen ritmo y se mantiene en 17x."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 19,
+        "price": "$19.00",
+        "tone": "good",
+        "text": "Gana volumen en nuevos mercados y el múltiplo sube a 20x."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Mantener y esperar precio de hoy"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$12.5 a $13.5 si cae; no perseguir sobre $15"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $11"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$16"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$17 a $19 con el consenso"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "Hasta 1.5% de la cartera total"
+      }
+    ],
+    "brazil": {
+      "level": "Media",
+      "summary": "Procesa pagos en varios países, con Brasil como una pieza grande.",
+      "points": [
+        {
+          "label": "Volumen",
+          "text": "Menos consumo brasileño reduce el volumen de pagos."
+        },
+        {
+          "label": "Contagio",
+          "text": "En una venta general de emergentes, cae aunque su negocio sea más amplio."
+        }
+      ]
+    },
+    "next": "Q3: 11 o 12-nov",
+    "sources": [
+      {
+        "t": "StockAnalysis: DLO",
+        "u": "https://stockanalysis.com/stocks/dlo/"
+      },
+      {
+        "t": "TipRanks: resultados de dLocal",
+        "u": "https://www.tipranks.com/stocks/dlo/earnings"
+      },
+      {
+        "t": "MarketScreener: consenso de dLocal",
+        "u": "https://www.marketscreener.com/quote/stock/DLOCAL-LIMITED-123219061/consensus/"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar.",
+    "range": {
+      "low": 10.64,
+      "high": 16.15,
+      "price": 15.06,
+      "label": "Rango de 52 semanas (último precio conocido)"
+    }
+  }
+}

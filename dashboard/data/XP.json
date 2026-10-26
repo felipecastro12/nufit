@@ -1,0 +1,225 @@
+{
+  "ticker": "XP",
+  "name": "XP Inc",
+  "exchange": "Nasdaq · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Esperar confirmación",
+      "tone": "warn",
+      "headline": "Cayó cerca de 49% en un día, más que lo que había subido: el precio es de pánico, pero el negocio es 100% local."
+    },
+    "summary": "XP rindió 30.9% tras la primera vuelta porque el mercado esperaba un giro a la derecha, y hoy devolvió todo y algo más ($15.60 frente a ≈ $21.5 antes del rally). Su ROE de 22.5% y su pago de más de 50% de la utilidad son sólidos, y por utilidades se ve barata (7x). Pero es la más sensible de la lista: vive de que los brasileños inviertan en bolsa y renta fija local. Es mejor esperar a que el precio se estabilice que atrapar un cuchillo que cae.",
+    "tiles": [
+      {
+        "label": "Precio",
+        "value": "$15.60",
+        "sub": "Premarket 26-oct (−48.7% vs $30.41)"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$18",
+        "sub": "Rango $11.5 a $25",
+        "tone": "warn"
+      },
+      {
+        "label": "ROE Q2 2026",
+        "value": "22.5%",
+        "sub": "Era 21.7% en el Q1",
+        "tone": "good"
+      },
+      {
+        "label": "EPS Q2",
+        "value": "$0.53",
+        "sub": "Superó los $0.50 esperados",
+        "tone": "good"
+      },
+      {
+        "label": "Ingresos Q2",
+        "value": "$943.6M",
+        "sub": "+8.3% anual"
+      },
+      {
+        "label": "P/E anualizado",
+        "value": "≈ 7.4x",
+        "sub": "$15.60 ÷ ($0.53 × 4)",
+        "tone": "good"
+      }
+    ],
+    "fair": {
+      "price": 15.6,
+      "priceTag": "premarket 26-oct",
+      "low": 11.5,
+      "base": 18,
+      "high": 25,
+      "method": "Promedio de dos métodos: 9 veces la utilidad por acción ajustada y 1.6 veces el valor en libros (que un ROE de 22.5% justifica con un costo de capital de 17%, propio de Brasil).",
+      "assumptions": [
+        {
+          "label": "EPS base",
+          "value": "≈ $1.90: $0.53 del Q2 anualizado ($2.1), menos 11% por el tipo de cambio. Es mi estimación; no hallé consenso de EPS."
+        },
+        {
+          "label": "Múltiplo de utilidad",
+          "value": "9x base ($17), 7x bajista, 11x alcista"
+        },
+        {
+          "label": "Precio sobre libros",
+          "value": "1.6x base (≈ $19), con ROE de 22.5% y costo de capital de 17%"
+        },
+        {
+          "label": "Precio de antes de la elección",
+          "value": "$30.41 el viernes. Subió 30.9% a $28.15 el 5-oct tras la primera vuelta, así que partía de ≈ $21.5."
+        }
+      ],
+      "caveat": "Los datos del precio no coinciden entre fuentes (una muestra −52%). El valor en libros por acción no se verificó, por eso el método de libros es solo una referencia."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 5,
+        "text": "Ingresos +8.3% anual."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 8,
+        "text": "ROE de 22.5% y EPS creciendo."
+      },
+      {
+        "label": "Retorno al accionista",
+        "score": 8,
+        "text": "Más de R$14 mil millones en dividendos y recompras desde 2022, con pago objetivo sobre 50%."
+      },
+      {
+        "label": "Valoración",
+        "score": 7,
+        "text": "≈ 7.4x utilidad anualizada."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 2,
+        "text": "Todo su negocio depende del mercado local."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 2,
+        "text": "Cayó el doble que el resto en una sesión."
+      }
+    ],
+    "strengths": [
+      "ROE de 22.5% y utilidad en alza.",
+      "Objetivo de pagar más de 50% de la utilidad a accionistas.",
+      "Objetivos de analistas de $25 a $38 antes del shock (JPMorgan $38, UBS $37).",
+      "Múltiplo bajo para su retorno."
+    ],
+    "risks": [
+      "Negocio sin diversificación fuera de Brasil.",
+      "Los fondos locales pueden seguir vendiendo mientras haya incertidumbre política.",
+      "Precio y caída difieren entre fuentes: el dato no es firme.",
+      "Un cambio fiscal podría afectar los productos de inversión (hipótesis, no confirmado).",
+      "Resultado del Q3 hacia el 16-nov."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 11.5,
+        "price": "$11.50",
+        "tone": "bad",
+        "text": "Salidas de fondos de renta variable local, Selic alta y el mercado paga 7x la utilidad."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 18,
+        "price": "$18.00",
+        "tone": "warn",
+        "text": "Capital propio rentable (ROE 22%) y pagos a accionistas sostienen un 9x."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 25,
+        "price": "$25.00",
+        "tone": "good",
+        "text": "Señal fiscal creíble y vuelta de flujos a bolsa llevan el múltiplo a 11x."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Esperar. Comprar solo después de un cierre estable"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$14 a $16 con una posición pequeña, cuando el precio deje de hacer mínimos"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $12.5 o caída de la utilidad en el Q3"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$17"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$18"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "Hasta 1% de la cartera total"
+      }
+    ],
+    "brazil": {
+      "level": "Muy alta",
+      "summary": "Es el negocio más local de la lista.",
+      "points": [
+        {
+          "label": "Flujos",
+          "text": "El cliente brasileño reduce riesgo con la incertidumbre política."
+        },
+        {
+          "label": "Tipo de cambio",
+          "text": "Todas las ganancias están en reales."
+        },
+        {
+          "label": "Tasas",
+          "text": "Una Selic alta ayuda a la renta fija pero frena la bolsa."
+        }
+      ]
+    },
+    "next": "Q3: 16-nov",
+    "sources": [
+      {
+        "t": "Benzinga: por qué cae XP",
+        "u": "https://www.benzinga.com/trading-ideas/movers/26/10/62590337/why-is-financial-services-firm-xp-stock-plummeting-on-monday"
+      },
+      {
+        "t": "XP: resultados del Q2 2026 (SEC)",
+        "u": "https://www.sec.gov/Archives/edgar/data/0001787425/000095010326012481/dp251884_6k-ex9902.htm"
+      },
+      {
+        "t": "MarketBeat: consenso de XP",
+        "u": "https://www.marketbeat.com/instant-alerts/consensus-xp-inc-nasdaq-xp-stock-has-consensus-price-target-of-2880-according-to-analysts-2026-10-25/"
+      },
+      {
+        "t": "StockAnalysis: XP",
+        "u": "https://stockanalysis.com/stocks/xp/"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar.",
+    "range": {
+      "low": 13.78,
+      "high": 32.73,
+      "price": 15.6,
+      "label": "Rango de 52 semanas (dato no confirmado)"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "ticker": "PAGS",
+  "name": "PagSeguro",
+  "exchange": "NYSE · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Esperar",
+      "tone": "warn",
+      "headline": "Barata por utilidades, pero casi no crece: es una trampa de valor si el crédito se deteriora."
+    },
+    "summary": "PagSeguro ganó R$576 millones recurrentes en el trimestre, +2% anual, y sus ingresos netos crecieron también cerca de 2%. A ≈ 5.8x la utilidad anualizada se ve barata, y el potencial base es de 14%. Pero una empresa que no crece y cuyo banco digital depende de la Selic no merece comprarse sin ver estabilidad. Mejor esperar al resultado del Q3 antes de entrar.",
+    "tiles": [
+      {
+        "label": "Precio",
+        "value": "≈ $8.10",
+        "sub": "Premarket 26-oct (estimado, ≈ −30% sobre ≈ $11.5)"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$9.2",
+        "sub": "Rango $6.3 a $12.4",
+        "tone": "good"
+      },
+      {
+        "label": "EPS Q2 ajustado",
+        "value": "$0.39",
+        "sub": "Frente a $0.40 esperado",
+        "tone": "warn"
+      },
+      {
+        "label": "Utilidad recurrente Q2",
+        "value": "R$576 M",
+        "sub": "+2% anual"
+      },
+      {
+        "label": "Ingresos netos Q2",
+        "value": "R$3.40 B",
+        "sub": "+2% anual",
+        "tone": "warn"
+      },
+      {
+        "label": "P/E anualizado",
+        "value": "≈ 5.8x",
+        "sub": "$8.10 ÷ $1.40",
+        "tone": "good"
+      }
+    ],
+    "fair": {
+      "price": 8.1,
+      "priceTag": "premarket 26-oct (estimado)",
+      "low": 6.3,
+      "base": 9.2,
+      "high": 12.4,
+      "method": "Utilidad por acción ajustada del trimestre ($0.39 por 4) menos 11% por el tipo de cambio, multiplicada por un múltiplo de 5x a 8x.",
+      "assumptions": [
+        {
+          "label": "EPS anualizado",
+          "value": "$0.39 × 4 = $1.56 antes del real; ≈ $1.40 después (−11%)"
+        },
+        {
+          "label": "Múltiplo",
+          "value": "6.5x base, 5x bajista, 8x alcista"
+        },
+        {
+          "label": "Objetivo de analistas antes del shock",
+          "value": "$11.5 a $11.8 (UBS entre $11 y $13; Jefferies $10.4)"
+        }
+      ],
+      "caveat": "Las fuentes dan entre −19% y −32% para hoy; usé −30% sobre ≈ $11.5, lo que da ≈ $8.1. Es una estimación."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 2,
+        "text": "Ingresos y utilidad crecen cerca de 2%."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 7,
+        "text": "Utilidad recurrente de R$576M por trimestre."
+      },
+      {
+        "label": "Valoración",
+        "score": 8,
+        "text": "≈ 5.8x la utilidad anualizada."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 3,
+        "text": "Negocio local de pagos y banca."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 2,
+        "text": "Jefferies inicia en Hold y el precio cae a mínimos."
+      }
+    ],
+    "strengths": [
+      "Valoración baja.",
+      "Utilidad recurrente estable.",
+      "Banca y crédito aportan margen."
+    ],
+    "risks": [
+      "Crecimiento casi nulo.",
+      "Banco digital sensible a tasas y morosidad.",
+      "Fuentes difieren en el precio de hoy y en la fecha del Q3 (11 o 16-nov).",
+      "Jefferies lo inició en Hold con objetivo de $10.4."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 6.3,
+        "price": "$6.30",
+        "tone": "bad",
+        "text": "Más morosidad y un múltiplo de 5x porque no crece."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 9.2,
+        "price": "$9.20",
+        "tone": "warn",
+        "text": "Utilidad estable y un múltiplo de 6.5x."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 12.4,
+        "price": "$12.40",
+        "tone": "good",
+        "text": "Más banca y crédito aceleran la utilidad y el múltiplo sube a 8x."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Esperar el resultado del Q3"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$7.5 a $8.5 con posición pequeña, después de confirmar"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $6.3"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$9"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$9.2"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "Hasta 1% de la cartera total"
+      }
+    ],
+    "brazil": {
+      "level": "Muy alta",
+      "summary": "Pagos y banca digital 100% locales.",
+      "points": [
+        {
+          "label": "Crédito",
+          "text": "La Selic alta eleva la morosidad y el costo de fondeo."
+        },
+        {
+          "label": "Cambio",
+          "text": "Ganancias en reales; el dólar fuerte las reduce."
+        }
+      ]
+    },
+    "next": "Q3: 11 o 16-nov",
+    "sources": [
+      {
+        "t": "StockAnalysis: PAGS",
+        "u": "https://stockanalysis.com/stocks/pags/"
+      },
+      {
+        "t": "TipRanks: resultados del Q2 2026",
+        "u": "https://www.tipranks.com/news/company-announcements/pagseguro-digital-posts-strong-q2-2026-profit-on-banking-and-credit-growth"
+      },
+      {
+        "t": "Tikr: caídas de StoneCo, Inter y PagSeguro",
+        "u": "https://www.tikr.com/blog/stoneco-sinks-29-inter-co-down-36-pagseguro-down-25-on-lulas-unexpected-election-win"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar."
+  }
+}

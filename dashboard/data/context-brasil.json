@@ -1,0 +1,159 @@
+{
+  "asOf": "26-oct-2026, datos de premarket e intradía",
+  "headline": "Lula ganó la segunda vuelta con 51.8% y el «trade Bolsonaro» se deshizo en una sola sesión.",
+  "summary": "El mercado había apostado a una victoria de Flávio Bolsonaro: Polymarket le daba cerca de 80% y los ETFs de Brasil recibieron $4.09 mil millones entre el 1 y el 23 de octubre. El resultado fue 51.8% a 48.2%. El real cayó cerca de 12% (de 4.97 a 5.60), el Ibovespa se detuvo 30 minutos y llegó a perder 16%, y EWZ va camino a su peor sesión desde su lanzamiento en 2000. Flávio dijo que pedirá anular la elección. Los precios de hoy no son de cierre y varían entre fuentes.",
+  "stats": [
+    {
+      "label": "Resultado",
+      "value": "51.8% a 48.2%",
+      "sub": "Lula contra Flávio Bolsonaro, 25-oct"
+    },
+    {
+      "label": "USD/BRL",
+      "value": "5.60",
+      "sub": "Desde 4.97 el viernes (+12%)",
+      "tone": "bad"
+    },
+    {
+      "label": "Ibovespa",
+      "value": "≈ −16%",
+      "sub": "≈ 171 mil puntos; viernes 205,083",
+      "tone": "bad"
+    },
+    {
+      "label": "EWZ",
+      "value": "$31.83",
+      "sub": "Premarket, −25.3%",
+      "tone": "bad"
+    },
+    {
+      "label": "Selic",
+      "value": "13.75%",
+      "sub": "Copom decide el 4-nov"
+    },
+    {
+      "label": "Inflación 12 meses",
+      "value": "4.58%",
+      "sub": "Sobre el techo de 4.5% (sep)",
+      "tone": "warn"
+    },
+    {
+      "label": "Tasa real",
+      "value": "≈ 8.8%",
+      "sub": "Selic menos inflación; la neutral ronda 5%",
+      "tone": "warn"
+    },
+    {
+      "label": "Deuda bruta / PIB",
+      "value": "82.9%",
+      "sub": "Intereses ≈ 8.9% del PIB",
+      "tone": "bad"
+    }
+  ],
+  "points": [
+    {
+      "h": "El tipo de cambio",
+      "t": "Una empresa que gana en reales vale 11% menos en dólares desde el viernes, sin que su negocio haya cambiado. Esto explica más de un tercio de la caída de Nu y buena parte de la de MELI."
+    },
+    {
+      "h": "El riesgo que exige el mercado",
+      "t": "Con déficit de 7% a 8% del PIB y deuda cerca de 70%, los inversionistas piden más retorno por tener activos brasileños. El mismo EPS vale menos con un múltiplo menor."
+    },
+    {
+      "h": "Las tasas",
+      "t": "La Selic está en 13.75% con una tasa real cercana a 8.8%. El consenso esperaba recortes hasta 13.25% a fin de año; con el shock, Morgan Stanley proyectaba un ajuste de cerca de 200 puntos base en las tasas interbancarias y JPMorgan quedó en infraponderar bonos locales. Menos recortes significan más morosidad."
+    },
+    {
+      "h": "Por qué cayeron más las fintechs",
+      "t": "Subieron con la primera vuelta (XP +30.9% el 5-oct) por la expectativa de un giro fiscal, y son las más sensibles a crédito y tasas. Hoy devolvieron todo: XP −49%, StoneCo −36%, PagSeguro ≈ −30%, Nu −26%."
+    },
+    {
+      "h": "Qué mejora el panorama",
+      "t": "Un ministro de Hacienda creíble, un marco fiscal respetado y que Bolsonaro acepte el resultado. Goldman espera «medidas modestas» para contener el gasto; Capital Economics ve que se esfuman las reformas."
+    },
+    {
+      "h": "Qué lo empeora",
+      "t": "Impugnación del resultado ante el tribunal electoral, más gasto antes del 1 de enero, un salto de tasas globales con un déficit alto y una Selic que no baja."
+    }
+  ],
+  "calendar": [
+    {
+      "when": "Por definir",
+      "what": "Nombre del ministro de Hacienda",
+      "why": "Es la primera señal fiscal: un nombre ortodoxo calma al real, uno populista lo hunde."
+    },
+    {
+      "when": "Por definir",
+      "what": "Reclamo de Bolsonaro ante el tribunal electoral",
+      "why": "Mientras no acepte el resultado, hay prima de incertidumbre."
+    },
+    {
+      "when": "2 o 4-nov",
+      "what": "Resultados de MercadoLibre (Q3)",
+      "why": "Primer dato real de consumo y crédito después del shock."
+    },
+    {
+      "when": "4-nov",
+      "what": "Decisión del Copom",
+      "why": "Define si siguen los recortes de la Selic desde 13.75%."
+    },
+    {
+      "when": "11 a 12-nov",
+      "what": "Resultados de Nu (12-nov), dLocal (11 o 12-nov) y PagSeguro (11 o 16-nov)",
+      "why": "Morosidad y crédito: el dato clave para los bancos digitales."
+    },
+    {
+      "when": "5, 12 o 17-nov",
+      "what": "Resultados de StoneCo (fechas sin confirmar)",
+      "why": "Confirma o recorta otra vez la guía de 2027."
+    },
+    {
+      "when": "16-nov",
+      "what": "Resultados de XP",
+      "why": "Muestra si los clientes retiran dinero a renta fija o se quedan."
+    },
+    {
+      "when": "1-ene-2027",
+      "what": "Posesión del nuevo gobierno",
+      "why": "Fecha límite para ver el marco fiscal en la práctica."
+    }
+  ],
+  "portfolio": [
+    "Trata estos ocho activos como un solo bloque, porque se mueven juntos. Con el mandato moderado, el tope razonable del bloque es 8% a 10% de la cartera total, y ningún país fuera de EE.UU. debería pasar de 15%.",
+    "Entra por tramos: no más de un tercio de la posición hoy y el resto después de resultados o de saber quién será el ministro de Hacienda.",
+    "No dupliques exposición: Nu es 8.5% de EWZ. Si ya tienes Nu, comprar EWZ suma esa misma posición.",
+    "Si ya tienes pérdidas en alguno, el precio de entrada no importa. La pregunta es si lo comprarías hoy con el fair value de esta página.",
+    "El orden de mayor a menor calidad con precio razonable es: MELI, Nu, EWZ, dLocal, XP, PagSeguro, StoneCo. El potencial va en otro orden, y la tabla muestra por qué ese conflicto pide tamaño pequeño."
+  ],
+  "sources": [
+    {
+      "t": "CNBC: Lula gana su cuarto mandato",
+      "u": "https://www.cnbc.com/2026/10/26/brazil-lula-win-presidential-election-runoff-vote.html"
+    },
+    {
+      "t": "Benzinga: EWZ camino a una caída récord",
+      "u": "https://www.benzinga.com/markets/latin-america/26/10/62586956/brazilian-stocks-record-crash-lula-election-ewz"
+    },
+    {
+      "t": "Invezz: acciones brasileñas y EWZ en premarket",
+      "u": "https://invezz.com/news/2026/10/26/brazil-stocks-brace-for-selloff-after-lulas-win-ewz-etf-falls-27-in-premarket/"
+    },
+    {
+      "t": "Rio Times: bolsa detenida tras la victoria de Lula",
+      "u": "https://www.riotimesonline.com/brazil-stocks-halted-circuit-breaker-lula-win-2026/"
+    },
+    {
+      "t": "Banco Central de Brasil: Copom baja la Selic",
+      "u": "https://www.bcb.gov.br/en/pressdetail/2680/nota"
+    },
+    {
+      "t": "Rio Times: inflación de septiembre de 4.58%",
+      "u": "https://www.riotimesonline.com/brazil-inflation-ipca-september-2026/"
+    },
+    {
+      "t": "Rio Times: tasa Selic y próximo Copom",
+      "u": "https://www.riotimesonline.com/selic-rate-brazil-foreign-investors-guide/"
+    }
+  ],
+  "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar."
+}

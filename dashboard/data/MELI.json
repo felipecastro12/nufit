@@ -1,0 +1,221 @@
+{
+  "ticker": "MELI",
+  "name": "MercadoLibre",
+  "exchange": "Nasdaq · USD",
+  "asOf": "2026-10-26",
+  "source": "búsqueda web (sin captura de thinkorswim)",
+  "type": "company",
+  "tags": [
+    "brasil"
+  ],
+  "periods": [],
+  "sections": [],
+  "analysis": {
+    "verdict": {
+      "rating": "Acumular en tramos",
+      "tone": "good",
+      "headline": "La más diversificada de la lista, crece 50% y el golpe de hoy fue menor que el de las fintechs."
+    },
+    "summary": "MercadoLibre vendió $10.17B en el trimestre (+49.8%) pero el margen operativo cayó de 12.2% a 6.7% porque sigue priorizando el crecimiento y la cartera de crédito. Brasil es su mayor mercado, de modo que el real y el consumo brasileño la golpean, aunque opera también en México y Argentina. Cayó cerca de 11% frente a 25% de Nu y 49% de XP, y eso la hace la opción más defensiva del grupo. No es barata por utilidades (≈ 45x el EPS anualizado del Q2), así que el fair value descansa en que siga creciendo.",
+    "tiles": [
+      {
+        "label": "Precio",
+        "value": "≈ $1,670",
+        "sub": "Premarket 26-oct (−11% sobre ≈ $1,874)"
+      },
+      {
+        "label": "Fair value base",
+        "value": "$2,000",
+        "sub": "Rango $1,450 a $2,400",
+        "tone": "good"
+      },
+      {
+        "label": "Ingresos Q2",
+        "value": "$10.17B",
+        "sub": "+49.8% anual",
+        "tone": "good"
+      },
+      {
+        "label": "Margen operativo",
+        "value": "6.7%",
+        "sub": "Era 12.2% hace un año",
+        "tone": "warn"
+      },
+      {
+        "label": "Utilidad neta Q2",
+        "value": "$466M",
+        "sub": "4.6% de margen"
+      },
+      {
+        "label": "P/E anualizado",
+        "value": "≈ 45x",
+        "sub": "EPS Q2 $9.19 × 4 = $36.8",
+        "tone": "warn"
+      }
+    ],
+    "fair": {
+      "price": 1670,
+      "priceTag": "premarket 26-oct",
+      "low": 1450,
+      "base": 2000,
+      "high": 2400,
+      "method": "Precio objetivo promedio de los analistas antes del shock ($2,270) recortado 12% por el tipo de cambio y por más prima de riesgo. Con una utilidad tan comprimida, un múltiplo de utilidad sería poco fiable.",
+      "assumptions": [
+        {
+          "label": "Objetivo del consenso",
+          "value": "$2,270 (StockAnalysis, 26 analistas). Jefferies $2,600, Cantor $2,300, Citi $2,100"
+        },
+        {
+          "label": "Recorte por Brasil",
+          "value": "−12%: tipo de cambio sobre ventas brasileñas y más riesgo país. El dato de qué parte de sus ventas es Brasil no apareció en las fuentes."
+        },
+        {
+          "label": "Rango",
+          "value": "Bajista $1,450 (bajo el mínimo de 52 semanas de $1,495). Alcista $2,400 (cerca del máximo de $2,428)."
+        }
+      ],
+      "caveat": "La caída de 11% se aplica al último precio verificado de $1,874 (21-oct); el cierre del viernes no apareció. El recorte de 12% es mi estimación."
+    },
+    "scores": [
+      {
+        "label": "Crecimiento",
+        "score": 9,
+        "text": "Ingresos +49.8% y artículos por comprador en Brasil +19%."
+      },
+      {
+        "label": "Rentabilidad",
+        "score": 5,
+        "text": "Margen operativo se comprimió 550 puntos base por inversión."
+      },
+      {
+        "label": "Caja",
+        "score": 6,
+        "text": "FCF ajustado de $214M en el Q2 tras $441M de capex y $2.1B a la cartera de crédito."
+      },
+      {
+        "label": "Valoración",
+        "score": 4,
+        "text": "≈ 45x EPS anualizado. Depende de que el crecimiento continúe."
+      },
+      {
+        "label": "Resiliencia a Brasil",
+        "score": 6,
+        "text": "Brasil es su mayor mercado, pero hay México, Argentina y más."
+      },
+      {
+        "label": "Confianza del mercado",
+        "score": 4,
+        "text": "Varios bancos recortaron objetivos tras el Q2 por inversión y competencia."
+      }
+    ],
+    "strengths": [
+      "Ingresos de más de $10B por trimestre creciendo casi 50%.",
+      "Ecosistema de comercio, pagos y crédito con mucha escala.",
+      "Caída menor que la del resto del grupo.",
+      "Consenso de 26 analistas en Buy con objetivo de $2,270 antes del shock."
+    ],
+    "risks": [
+      "Margen operativo a la mitad en un año: la inversión puede no rendir.",
+      "Cartera de crédito en rápido crecimiento con tasas altas.",
+      "Real débil reduce el valor en dólares de las ventas brasileñas.",
+      "Múltiplo exigente: cualquier desaceleración castiga fuerte.",
+      "Resultados del Q3 el 2 o 4 de noviembre (las fuentes difieren)."
+    ],
+    "scenarios": [
+      {
+        "name": "Bajista",
+        "prob": 30,
+        "px": 1450,
+        "price": "$1,450",
+        "tone": "bad",
+        "text": "Margen operativo sigue cayendo, el consumo brasileño se frena y la acción vuelve al mínimo de 52 semanas."
+      },
+      {
+        "name": "Base",
+        "prob": 45,
+        "px": 2000,
+        "price": "$2,000",
+        "tone": "warn",
+        "text": "El crecimiento de 40% o más compensa el golpe del real y el múltiplo se mantiene."
+      },
+      {
+        "name": "Alcista",
+        "prob": 25,
+        "px": 2400,
+        "price": "$2,400",
+        "tone": "good",
+        "text": "Los márgenes se recuperan y la acción vuelve al máximo de 52 semanas."
+      }
+    ],
+    "plan": [
+      {
+        "label": "Acción",
+        "value": "Acumular en 2 o 3 tramos"
+      },
+      {
+        "label": "Zona de entrada",
+        "value": "$1,600 a $1,750 el primer tramo, el segundo después del Q3"
+      },
+      {
+        "label": "Invalidación",
+        "value": "Cierre semanal bajo $1,450 o margen operativo bajo 5%"
+      },
+      {
+        "label": "Objetivo 3 meses",
+        "value": "$1,850"
+      },
+      {
+        "label": "Objetivo 12 meses",
+        "value": "$2,000"
+      },
+      {
+        "label": "Tamaño sugerido",
+        "value": "1.5% a 2.5% de la cartera total, dentro del cupo conjunto de Brasil"
+      }
+    ],
+    "brazil": {
+      "level": "Alta",
+      "summary": "Brasil es su mayor mercado, pero no el único.",
+      "points": [
+        {
+          "label": "Consumo",
+          "text": "Selic alta y real débil enfrían el gasto de los hogares y encarecen el crédito."
+        },
+        {
+          "label": "Tipo de cambio",
+          "text": "Las ventas en reales valen menos en dólares."
+        },
+        {
+          "label": "Diversificación",
+          "text": "México y Argentina amortiguan parte del golpe."
+        }
+      ]
+    },
+    "next": "Q3: 2 o 4-nov",
+    "sources": [
+      {
+        "t": "MercadoLibre: informe del Q2 2026 (SEC)",
+        "u": "https://www.sec.gov/Archives/edgar/data/0001099590/000109959026000021/meli-20260805xex991.htm"
+      },
+      {
+        "t": "StockAnalysis: MELI",
+        "u": "https://stockanalysis.com/stocks/meli/"
+      },
+      {
+        "t": "Ad-hoc-news: Jefferies mantiene $2,600",
+        "u": "https://www.ad-hoc-news.de/boerse/news/corporate-news/meli-stock-jefferies-keeps-usd-2-600-00-target-for-mercadolibre-stock/70386371"
+      },
+      {
+        "t": "Yahoo Finance: acciones brasileñas caen tras Lula",
+        "u": "https://finance.yahoo.com/markets/stocks/articles/brazilian-stocks-tumble-lula-wins-132206701.html"
+      }
+    ],
+    "disclaimer": "Análisis con fines educativos. No constituye asesoría financiera personalizada. Los precios son de premarket o intradía del 26-oct-2026 y varían entre fuentes; el fair value es una estimación propia con supuestos explícitos, no un dato de mercado. Vuelve a revisar antes de ejecutar.",
+    "range": {
+      "low": 1495,
+      "high": 2428,
+      "price": 1670,
+      "label": "Rango de 52 semanas"
+    }
+  }
+}
